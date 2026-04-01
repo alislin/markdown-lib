@@ -1,5 +1,14 @@
 // src/scss/md-green-dark.scss
 
+@use 'core/reset';
+@use 'core/typography';
+@use 'core/code';
+@use 'core/blockquote';
+@use 'core/tables';
+@use 'core/forms';
+@use 'core/images';
+@use 'core/utilities';
+
 :root {
   --md-bg-primary: #1a1a1a;
   --md-bg-secondary: #1e1e1e;
@@ -32,12 +41,3 @@
   --md-shadow-image: 5px 5px 15px rgba(0, 0, 0, 0.5);
   --md-shadow-code: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
-
-@use 'core/reset';
-@use 'core/typography';
-@use 'core/code';
-@use 'core/blockquote';
-@use 'core/tables';
-@use 'core/forms';
-@use 'core/images';
-@use 'core/utilities';
