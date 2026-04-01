@@ -13,6 +13,11 @@ const targets = [
 
 console.log('Building markdown theme...\n');
 
+const distDir = path.dirname(targets[0].output);
+if (!fs.existsSync(distDir)) {
+  fs.mkdirSync(distDir, { recursive: true });
+}
+
 targets.forEach(({ input, output }) => {
   try {
     const result = sass.compile(input, {
