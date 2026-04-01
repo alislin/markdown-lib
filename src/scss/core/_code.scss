@@ -1,0 +1,41 @@
+// src/scss/core/_code.scss
+
+code, pre {
+  border-radius: var(--md-radius-sm);
+  background-color: var(--md-bg-code);
+  color: inherit;
+}
+
+code {
+  font-family: var(--md-font-code);
+  margin: 0 2px;
+  color: var(--md-code-text);
+}
+
+pre {
+  line-height: var(--md-line-height-code);
+  overflow: auto;
+  padding: 6px 10px;
+  border-left: 5px solid var(--md-code-border);
+  box-shadow: var(--md-shadow-code);
+}
+
+pre > code {
+  border: 0;
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  font-size: .85em;
+  white-space: pre;
+  background: 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  pre {
+    margin: 10px -20px;
+    border-radius: 0;
+  }
+}
