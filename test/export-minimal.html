@@ -1,30 +1,52 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>文档标题</title>
-  <link rel="stylesheet" href="md-green-light.css">
+	<meta charset="UTF-8">
+	<title>文档标题</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+	<style>
+:root {
+  --fence-border: #e5e7eb;
+  --fence-bg: #f9fafb;
+  --fence-item-bg: #fcfcfc;
+  --fence-shadow: rgba(0, 0, 0, 0.16);
+  --fence-title-bg: #e5e5e5;
+  --fence-title-border: #cccccc;
+}
+
+@page {
+  margin: 10mm;
+  size: A4;
+}
+	</style>
+	<link rel="stylesheet" href="../dist/md-green-light.css">
 </head>
 <body>
-  <h1>文档标题</h1>
-  
-  <p>这是一个使用 MD-Green 浅色主题渲染的文档。</p>
+	<h1>文档标题</h1>
+	
+	<p>这是一个使用 MD-Green 浅色主题渲染的文档。</p>
 
-  <h2>章节标题</h2>
-  <p>文档正文内容。支持<strong>加粗</strong>、<em>斜体</em>和<a href="#">链接</a>。</p>
+	<h2>章节标题</h2>
+	<p>文档正文内容。支持<strong>加粗</strong>、<em>斜体</em>和<a href="#">链接</a>。</p>
 
-  <ul>
-    <li>列表项一</li>
-    <li>列表项二</li>
-  </ul>
+	<ul>
+		<li>列表项一</li>
+		<li>列表项二</li>
+	</ul>
 
-  <blockquote>
-    <p>这是一段引用文本。</p>
-  </blockquote>
+	<pre><code class="language-javascript">function hello() {
+  return "Hello, World!";
+}</code></pre>
 
-  <hr>
+	<blockquote>
+		<p>这是一段引用文本。</p>
+	</blockquote>
 
-  <p style="color: #888; font-size: 14px;">导出时间：2026-04-01</p>
+	<hr>
+
+	<p style="color: #888; font-size: 14px;">导出时间：2026-04-01</p>
+
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 </html>
