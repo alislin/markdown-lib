@@ -7,6 +7,7 @@
     "build": "node build.js",
     "watch": "sass --watch src/scss:dist --style compressed",
     "dev": "sass src/scss/md-green.scss:dist/md-green.css --watch",
+    "test": "npx playwright test",
     "release": "standard-version",
     "release:first": "standard-version --first-release"
   },
