@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Obsidian 笔记模拟</title>
   <link rel="stylesheet" href="../dist/md-green.css">
+  <link rel="stylesheet" href="_nav.css">
   <style>
     * {
       box-sizing: border-box;
@@ -12,17 +13,16 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #1e1e1e;
+      padding-top: 56px;
     }
     .obsidian-app {
       display: flex;
-      min-height: 100vh;
+      min-height: calc(100vh - 56px);
     }
     .obsidian-sidebar {
       width: 260px;
-      background: #252525;
-      border-right: 1px solid #333;
+      background: var(--md-bg-secondary);
+      border-right: 1px solid var(--md-border);
       padding: 16px;
       flex-shrink: 0;
     }
@@ -30,19 +30,19 @@
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #888;
+      color: var(--md-text-muted);
       margin-bottom: 12px;
     }
     .obsidian-sidebar-item {
       padding: 6px 12px;
-      color: #ccc;
+      color: var(--md-text-secondary);
       cursor: pointer;
       border-radius: 4px;
       margin-bottom: 2px;
       font-size: 14px;
     }
     .obsidian-sidebar-item:hover {
-      background: #333;
+      background: var(--md-bg-table-hover);
     }
     .obsidian-sidebar-item.active {
       background: #4CAF50;
@@ -56,41 +56,13 @@
     .obsidian-toolbar {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       padding: 8px 16px;
-      background: #252525;
-      border-bottom: 1px solid #333;
-    }
-    .obsidian-toolbar-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
+      background: var(--md-bg-secondary);
+      border-bottom: 1px solid var(--md-border);
     }
     .obsidian-toolbar-title {
       font-size: 14px;
-      color: #ccc;
-    }
-    .obsidian-toolbar-buttons {
-      display: flex;
-      gap: 8px;
-    }
-    .obsidian-toolbar button {
-      padding: 4px 12px;
-      border: 1px solid #454545;
-      border-radius: 4px;
-      background: transparent;
-      color: #ccc;
-      cursor: pointer;
-      font-size: 12px;
-      font-family: inherit;
-    }
-    .obsidian-toolbar button:hover {
-      background: #333;
-    }
-    .obsidian-toolbar button.active {
-      background: #4CAF50;
-      border-color: #4CAF50;
-      color: #fff;
+      color: var(--md-text-secondary);
     }
     .obsidian-content {
       flex: 1;
@@ -99,12 +71,6 @@
       max-width: 800px;
       margin: 0 auto;
       width: 100%;
-    }
-    .theme-dark .obsidian-content {
-      background: #1e1e1e;
-    }
-    .theme-light .obsidian-content {
-      background: #ffffff;
     }
     .obsidian-tags {
       margin-top: 32px;
@@ -134,7 +100,23 @@
   </style>
 </head>
 <body>
-  <div class="obsidian-app theme-dark" id="app">
+  <nav class="md-nav">
+    <a class="md-nav-brand" href="index.html">MD-Green Theme</a>
+    <div class="md-nav-links">
+      <a href="index.html">首页</a>
+      <a href="vscode.html">VSCode</a>
+      <a href="obsidian.html">Obsidian</a>
+      <a href="docsify.html">Docsify</a>
+      <a href="export.html">导出模板</a>
+    </div>
+    <div class="md-nav-theme">
+      <button data-theme="light">浅色</button>
+      <button data-theme="dark">深色</button>
+      <button data-theme="auto">自动</button>
+    </div>
+  </nav>
+
+  <div class="obsidian-app">
     <div class="obsidian-sidebar">
       <div class="obsidian-sidebar-header">文件 Files</div>
       <div class="obsidian-sidebar-item active">📄 MD-Green 主题测试</div>
@@ -148,14 +130,7 @@
     
     <div class="obsidian-main">
       <div class="obsidian-toolbar">
-        <div class="obsidian-toolbar-left">
-          <span class="obsidian-toolbar-title">📄 MD-Green 主题测试</span>
-        </div>
-        <div class="obsidian-toolbar-buttons">
-          <button onclick="setTheme('light')">浅色</button>
-          <button onclick="setTheme('dark')" class="active">深色</button>
-          <button onclick="setTheme('auto')">自动</button>
-        </div>
+        <span class="obsidian-toolbar-title">📄 MD-Green 主题测试</span>
       </div>
       
       <div class="obsidian-content markdown-preview-view markdown-rendered">
@@ -184,13 +159,11 @@
         </ol>
 
         <h2>代码示例</h2>
-        <pre><code>```css
-/* 在 Obsidian 中覆盖变量 */
+        <pre><code>/* 在 Obsidian 中覆盖变量 */
 :root {
   --md-bg-primary: var(--background-primary);
   --md-text-primary: var(--text-normal);
-}
-```</code></pre>
+}</code></pre>
 
         <h2>相关笔记</h2>
         <table>
@@ -238,24 +211,6 @@
     </div>
   </div>
 
-  <script>
-    function setTheme(theme) {
-      const app = document.getElementById('app');
-      document.querySelectorAll('.obsidian-toolbar button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      event.target.classList.add('active');
-      
-      app.classList.remove('theme-dark', 'theme-light');
-      
-      if (theme === 'auto') {
-        app.classList.add('theme-dark');
-        document.documentElement.removeAttribute('data-theme');
-      } else {
-        app.classList.add('theme-' + theme);
-        document.documentElement.setAttribute('data-theme', theme);
-      }
-    }
-  </script>
+  <script src="_nav.js"></script>
 </body>
 </html>

@@ -5,77 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VSCode Markdown Preview 模拟</title>
   <link rel="stylesheet" href="../dist/md-green.css">
+  <link rel="stylesheet" href="_nav.css">
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: #1e1e1e;
-    }
-    .vscode-toolbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      background: #323233;
-      border-bottom: 1px solid #454545;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-size: 13px;
-      color: #cccccc;
-    }
-    .vscode-toolbar-title {
-      margin-right: 24px;
-      font-weight: 500;
-    }
-    .vscode-toolbar button {
-      padding: 4px 12px;
-      border: 1px solid #454545;
-      border-radius: 2px;
-      background: #0e639c;
-      color: #ffffff;
-      cursor: pointer;
-      font-size: 12px;
-      font-family: inherit;
-    }
-    .vscode-toolbar button:hover {
-      background: #1177bb;
-    }
-    .vscode-toolbar button.active {
-      background: #0e639c;
-    }
-    .vscode-toolbar button.outline {
-      background: transparent;
-      color: #cccccc;
+      padding-top: 56px;
     }
     .vscode-body {
-      padding: 20px;
-      padding-top: 60px;
+      padding: 24px;
       max-width: 900px;
       margin: 0 auto;
-      min-height: 100vh;
-    }
-    .vscode-body.vscode-light {
-      background: #ffffff;
-    }
-    .vscode-body.vscode-dark {
-      background: #1e1e1e;
+      min-height: calc(100vh - 56px);
     }
   </style>
 </head>
 <body>
-  <div class="vscode-toolbar">
-    <span class="vscode-toolbar-title">VSCode Markdown Preview</span>
-    <span style="margin-right: 8px; color: #888;">主题：</span>
-    <button onclick="setTheme('light')" class="outline">Light</button>
-    <button onclick="setTheme('dark')" class="outline active">Dark</button>
-    <button onclick="setTheme('auto')" class="outline">Auto</button>
-  </div>
+  <nav class="md-nav">
+    <a class="md-nav-brand" href="index.html">MD-Green Theme</a>
+    <div class="md-nav-links">
+      <a href="index.html">首页</a>
+      <a href="vscode.html">VSCode</a>
+      <a href="obsidian.html">Obsidian</a>
+      <a href="docsify.html">Docsify</a>
+      <a href="export.html">导出模板</a>
+    </div>
+    <div class="md-nav-theme">
+      <button data-theme="light">浅色</button>
+      <button data-theme="dark">深色</button>
+      <button data-theme="auto">自动</button>
+    </div>
+  </nav>
 
-  <div class="vscode-body vscode-dark markdown-preview" id="preview">
+  <div class="vscode-body markdown-preview">
     <h1>VSCode Markdown 预览示例</h1>
     <p>这是模拟 <strong>Visual Studio Code</strong> Markdown 预览的测试页面。</p>
 
@@ -152,29 +114,6 @@
     </p>
   </div>
 
-  <script>
-    const preview = document.getElementById('preview');
-    
-    function setTheme(theme) {
-      document.querySelectorAll('.vscode-toolbar button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      event.target.classList.add('active');
-      
-      if (theme === 'auto') {
-        preview.classList.remove('vscode-light', 'vscode-dark');
-        preview.classList.add('vscode-dark');
-      } else {
-        preview.classList.remove('vscode-light', 'vscode-dark');
-        preview.classList.add('vscode-' + theme);
-      }
-      
-      if (theme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    }
-  </script>
+  <script src="_nav.js"></script>
 </body>
 </html>

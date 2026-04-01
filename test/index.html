@@ -5,40 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MD-Green Theme - 测试页面</title>
   <link rel="stylesheet" href="../dist/md-green.css">
+  <link rel="stylesheet" href="_nav.css">
   <style>
-    .theme-switcher {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      display: flex;
-      gap: 8px;
-      padding: 12px 20px;
-      background: var(--md-bg-secondary);
-      border-bottom: 1px solid var(--md-border);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .theme-switcher button {
-      padding: 8px 16px;
-      border: 1px solid var(--md-border-table);
-      border-radius: var(--md-radius-sm);
-      background: var(--md-bg-primary);
-      color: var(--md-text-primary);
-      cursor: pointer;
-      font-size: 14px;
-      transition: all 0.2s;
-    }
-    .theme-switcher button:hover {
-      background: var(--md-bg-table-hover);
-    }
-    .theme-switcher button.active {
-      background: #0064cd;
-      color: #fff;
-      border-color: #0064cd;
-    }
     body {
-      padding-top: 80px;
+      padding-top: 72px;
     }
     .section {
       margin-bottom: 48px;
@@ -58,12 +28,21 @@
   </style>
 </head>
 <body>
-  <div class="theme-switcher">
-    <span style="margin-right: 16px; font-weight: bold;">主题切换：</span>
-    <button data-theme="light">浅色</button>
-    <button data-theme="dark">深色</button>
-    <button data-theme="auto" class="active">自动</button>
-  </div>
+  <nav class="md-nav">
+    <a class="md-nav-brand" href="index.html">MD-Green Theme</a>
+    <div class="md-nav-links">
+      <a href="index.html">首页</a>
+      <a href="vscode.html">VSCode</a>
+      <a href="obsidian.html">Obsidian</a>
+      <a href="docsify.html">Docsify</a>
+      <a href="export.html">导出模板</a>
+    </div>
+    <div class="md-nav-theme">
+      <button data-theme="light">浅色</button>
+      <button data-theme="dark">深色</button>
+      <button data-theme="auto">自动</button>
+    </div>
+  </nav>
 
   <h1>MD-Green Markdown Theme 测试页面</h1>
   <p>这是一个完整的 Markdown 样式测试页面，展示所有支持的元素类型。</p>
@@ -266,22 +245,6 @@ console.log(message);</code></pre>
     <p>上下标：H<sub>2</sub>O 水，E = mc<sup>2</sup> 质能方程</p>
   </div>
 
-  <script>
-    const buttons = document.querySelectorAll('.theme-switcher button');
-    
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        const theme = btn.dataset.theme;
-        if (theme === 'auto') {
-          document.documentElement.removeAttribute('data-theme');
-        } else {
-          document.documentElement.setAttribute('data-theme', theme);
-        }
-      });
-    });
-  </script>
+  <script src="_nav.js"></script>
 </body>
 </html>
