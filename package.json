@@ -1,0 +1,17 @@
+{
+  "name": "md-green-theme",
+  "version": "1.0.0",
+  "description": "Markdown theme with light/dark mode support",
+  "main": "dist/md-green.css",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "sass --watch src/scss:dist --style compressed",
+    "dev": "sass src/scss/md-green.scss:dist/md-green.css --watch"
+  },
+  "files": [
+    "dist/"
+  ],
+  "devDependencies": {
+    "sass": "^1.83.0"
+  }
+}
