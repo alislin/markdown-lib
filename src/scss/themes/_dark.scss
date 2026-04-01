@@ -134,3 +134,68 @@
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
   }
 }
+
+// === 选中文本 ===
+[data-theme="dark"] ::selection {
+  background-color: rgba(76, 175, 80, 0.3);
+  color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background-color: rgba(76, 175, 80, 0.3);
+    color: #ffffff;
+  }
+}
+
+// === 滚动条 ===
+[data-theme="dark"] {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #222;
+}
+
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #222;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+// === kbd 和 mark ===
+[data-theme="dark"] kbd {
+  background-color: var(--md-bg-code);
+  border-color: #444;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] mark {
+  background-color: rgba(255, 235, 59, 0.2);
+  color: #fff;
+  padding: 0 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  kbd {
+    background-color: #2d2d2d;
+    border-color: #444;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    color: #d0d0d0;
+  }
+  
+  mark {
+    background-color: rgba(255, 235, 59, 0.2);
+    color: #fff;
+  }
+}
