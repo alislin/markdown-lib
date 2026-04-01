@@ -1,0 +1,34 @@
+// src/scss/themes/_light.scss
+
+[data-theme="light"] {
+  --md-bg-primary: #ffffff;
+  --md-bg-secondary: #f7f7f7;
+  --md-bg-code: #f7f7f7;
+  --md-bg-blockquote: rgb(244, 255, 244);
+  --md-bg-table-hover: #fbf8e9;
+  --md-bg-table-header: #dce9f9;
+  
+  --md-text-primary: #444444;
+  --md-text-secondary: #666666;
+  --md-text-muted: #999999;
+  --md-text-heading: #111111;
+  --md-text-blockquote: #3c3c3c;
+  --md-text-blockquote-cite: #bfbfbf;
+  
+  --md-link: #0099ff;
+  --md-link-hover: #ff6600;
+  --md-link-visited: purple;
+  
+  --md-code-text: #F44336;
+  --md-code-border: #6CE26C;
+  --md-code-bg: #f7f7f7;
+  
+  --md-border: #EFEAEA;
+  --md-border-heading: #EFEAEA;
+  --md-border-blockquote: rgb(9, 180, 66);
+  --md-border-table: #ccc;
+  --md-border-image: gray;
+  
+  --md-shadow-image: 5px 5px 5px grey;
+  --md-shadow-code: none;
+}
