@@ -33,6 +33,34 @@
     
     --md-shadow-image: 5px 5px 15px rgba(0, 0, 0, 0.5);
     --md-shadow-code: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+    input[type=text],
+    input[type=password],
+    textarea,
+    select {
+      background-color: var(--md-bg-code);
+      border-color: #444;
+      color: var(--md-text-primary);
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus,
+    textarea:focus {
+      border-color: #4CAF50;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 8px rgba(76, 175, 80, 0.3);
+    }
+
+    button {
+      background: linear-gradient(to bottom, #2c3e50, #34495e);
+      border-color: #2c3e50;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    button:hover {
+      background: linear-gradient(to bottom, #34495e, #2c3e50);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
   }
 }
 
@@ -67,4 +95,32 @@
   
   --md-shadow-image: 5px 5px 15px rgba(0, 0, 0, 0.5);
   --md-shadow-code: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+  input[type=text],
+  input[type=password],
+  textarea,
+  select {
+    background-color: var(--md-bg-code);
+    border-color: #444;
+    color: var(--md-text-primary);
+  }
+
+  input[type=text]:focus,
+  input[type=password]:focus,
+  textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 8px rgba(76, 175, 80, 0.3);
+  }
+
+  button {
+    background: linear-gradient(to bottom, #2c3e50, #34495e);
+    border-color: #2c3e50;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  button:hover {
+    background: linear-gradient(to bottom, #34495e, #2c3e50);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
 }
