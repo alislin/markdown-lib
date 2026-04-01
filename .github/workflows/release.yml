@@ -26,6 +26,9 @@ jobs:
       - name: Build
         run: npm run build
       
+      - name: Install Playwright
+        uses: microsoft/playwright-github-action@v1
+      
       - name: Run tests
         run: npm test
         continue-on-error: true
