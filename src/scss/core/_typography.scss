@@ -45,6 +45,18 @@ h5 {
   line-height: 23px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  a {
+    color: inherit;
+    text-decoration: none;
+    
+    &:hover {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}
+
 a {
   color: var(--md-link);
   margin: 0;

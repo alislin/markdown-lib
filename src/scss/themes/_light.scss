@@ -31,4 +31,9 @@
   
   --md-shadow-image: 5px 5px 5px grey;
   --md-shadow-code: none;
+
+  table th {
+    background-image: linear-gradient(to bottom, #e8f4fc, #dce9f9);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
 }
