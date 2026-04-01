@@ -1,0 +1,22 @@
+// src/scss/core/_reset.scss
+
+body {
+  margin: 0 auto;
+  font-family: var(--md-font-body);
+  color: var(--md-text-primary);
+  line-height: var(--md-line-height);
+  padding: var(--md-spacing-lg);
+  background-color: var(--md-bg-primary);
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    margin: 10px auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+}
