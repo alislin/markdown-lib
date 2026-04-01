@@ -2,6 +2,10 @@
   "name": "md-green-theme",
   "version": "1.0.1",
   "description": "Markdown theme with light/dark mode support",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alislin/markdown-lib"
+  },
   "main": "dist/md-green.css",
   "scripts": {
     "build": "node build.js",
