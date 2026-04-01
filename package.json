@@ -6,15 +6,24 @@
   "scripts": {
     "build": "node build.js",
     "watch": "sass --watch src/scss:dist --style compressed",
-    "dev": "sass src/scss/md-green.scss:dist/md-green.css --watch"
+    "dev": "sass src/scss/md-green.scss:dist/md-green.css --watch",
+    "release": "standard-version",
+    "release:first": "standard-version --first-release"
   },
   "files": [
     "dist/"
   ],
   "devDependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
     "@playwright/test": "^1.42.0",
     "http-server": "^14.1.1",
     "playwright": "^1.42.0",
-    "sass": "^1.83.0"
+    "sass": "^1.83.0",
+    "standard-version": "^9.5.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }
