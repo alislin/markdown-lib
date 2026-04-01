@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>主题优先级测试</title>
+  <link rel="stylesheet" href="../dist/md-green.css">
+  <link rel="stylesheet" href="_nav.css">
+  <link rel="stylesheet" href="_theme-priority.css">
+</head>
+<body>
+  <nav class="md-nav">
+    <a class="md-nav-brand" href="index.html">MD-Green Theme</a>
+    <div class="md-nav-links">
+      <a href="index.html">首页</a>
+      <a href="vscode.html">VSCode</a>
+      <a href="obsidian.html">Obsidian</a>
+      <a href="docsify.html">Docsify</a>
+      <a href="export.html">导出模板</a>
+      <a href="theme-priority.html">优先级测试</a>
+    </div>
+    <div class="md-nav-theme">
+      <button data-theme="light">浅色</button>
+      <button data-theme="dark">深色</button>
+      <button data-theme="auto">自动</button>
+    </div>
+  </nav>
+
+  <div class="theme-priority-page">
+    <h1>主题优先级测试系统</h1>
+    <p>测试系统主题、VSCode 设置、用户选择之间的优先级关系：<strong>用户选择 > VSCode 设置 > 系统主题</strong></p>
+
+    <div class="control-panel">
+      <div class="control-panel-title">主题来源控制</div>
+      
+      <div class="control-row">
+        <span class="control-label">系统主题:</span>
+        <span class="control-status system-theme-status">检测中...</span>
+      </div>
+      
+      <div class="control-row">
+        <span class="control-label">VSCode 设置:</span>
+        <div class="control-buttons">
+          <button class="control-btn vscode-theme-btn" data-vscode="none">无</button>
+          <button class="control-btn vscode-theme-btn" data-vscode="auto">auto</button>
+          <button class="control-btn vscode-theme-btn" data-vscode="light">light</button>
+          <button class="control-btn vscode-theme-btn" data-vscode="dark">dark</button>
+        </div>
+      </div>
+      
+      <div class="control-row">
+        <span class="control-label">用户选择:</span>
+        <div class="control-buttons">
+          <button class="control-btn user-theme-btn" data-user="auto">auto</button>
+          <button class="control-btn user-theme-btn" data-user="light">light</button>
+          <button class="control-btn user-theme-btn" data-user="dark">dark</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="active-theme-indicator">
+      <div class="active-theme-title">当前激活主题</div>
+      <div class="active-theme-value">浅色主题</div>
+      <div class="active-theme-source">来源: 系统主题</div>
+    </div>
+
+    <div class="scenario-table-container">
+      <div class="scenario-table-title">场景对照表（当前场景高亮显示）</div>
+      <table class="scenario-table">
+        <thead>
+          <tr>
+            <th>系统主题</th>
+            <th>VSCode 设置</th>
+            <th>用户选择</th>
+            <th>最终主题</th>
+            <th>来源</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-system="dark" data-vscode="none" data-user="none">
+            <td>dark</td>
+            <td>无</td>
+            <td>-</td>
+            <td>深色</td>
+            <td>系统</td>
+          </tr>
+          <tr data-system="light" data-vscode="none" data-user="none">
+            <td>light</td>
+            <td>无</td>
+            <td>-</td>
+            <td>浅色</td>
+            <td>系统</td>
+          </tr>
+          <tr data-system="dark" data-vscode="auto" data-user="none">
+            <td>dark</td>
+            <td>auto</td>
+            <td>-</td>
+            <td>深色</td>
+            <td>系统</td>
+          </tr>
+          <tr data-system="light" data-vscode="auto" data-user="none">
+            <td>light</td>
+            <td>auto</td>
+            <td>-</td>
+            <td>浅色</td>
+            <td>系统</td>
+          </tr>
+          <tr data-system="dark" data-vscode="light" data-user="none">
+            <td>dark</td>
+            <td>light</td>
+            <td>-</td>
+            <td>浅色</td>
+            <td>VSCode</td>
+          </tr>
+          <tr data-system="light" data-vscode="dark" data-user="none">
+            <td>light</td>
+            <td>dark</td>
+            <td>-</td>
+            <td>深色</td>
+            <td>VSCode</td>
+          </tr>
+          <tr data-system="dark" data-vscode="dark" data-user="none">
+            <td>dark</td>
+            <td>dark</td>
+            <td>-</td>
+            <td>深色</td>
+            <td>VSCode</td>
+          </tr>
+          <tr data-system="light" data-vscode="light" data-user="none">
+            <td>light</td>
+            <td>light</td>
+            <td>-</td>
+            <td>浅色</td>
+            <td>VSCode</td>
+          </tr>
+          <tr data-system="dark" data-vscode="light" data-user="light">
+            <td>dark</td>
+            <td>light</td>
+            <td>light</td>
+            <td>浅色</td>
+            <td>用户</td>
+          </tr>
+          <tr data-system="dark" data-vscode="light" data-user="dark">
+            <td>dark</td>
+            <td>light</td>
+            <td>dark</td>
+            <td>深色</td>
+            <td>用户</td>
+          </tr>
+          <tr data-system="light" data-vscode="dark" data-user="light">
+            <td>light</td>
+            <td>dark</td>
+            <td>light</td>
+            <td>浅色</td>
+            <td>用户</td>
+          </tr>
+          <tr data-system="light" data-vscode="dark" data-user="dark">
+            <td>light</td>
+            <td>dark</td>
+            <td>dark</td>
+            <td>深色</td>
+            <td>用户</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="markdown-test-section">
+      <h2>Markdown 内容测试区</h2>
+      <p>以下内容用于测试不同主题场景下的样式表现。</p>
+      
+      <h3>标题示例</h3>
+      <p>这是普通段落文本，包含 <strong>加粗</strong>、<em>斜体</em>、<code>内联代码</code>。</p>
+      
+      <h3>代码块</h3>
+      <pre><code>function hello() {
+  console.log('Hello World!');
+}</code></pre>
+      
+      <h3>引用块</h3>
+      <blockquote>
+        <p>这是一段引用文本，用于测试引用块样式。</p>
+      </blockquote>
+      
+      <h3>表格</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>列 A</th>
+            <th>列 B</th>
+            <th>列 C</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>数据 1</td>
+            <td>数据 2</td>
+            <td>数据 3</td>
+          </tr>
+          <tr>
+            <td>数据 4</td>
+            <td>数据 5</td>
+            <td>数据 6</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3>列表</h3>
+      <ul>
+        <li>无序列表项 1</li>
+        <li>无序列表项 2</li>
+        <li>无序列表项 3</li>
+      </ul>
+      
+      <ol>
+        <li>有序列表项 1</li>
+        <li>有序列表项 2</li>
+        <li>有序列表项 3</li>
+      </ol>
+    </div>
+  </div>
+
+  <script src="_nav.js"></script>
+  <script src="_theme-priority.js"></script>
+</body>
+</html>

@@ -9,6 +9,10 @@
       }
     });
     
+    if (document.querySelector('.user-theme-btn')) {
+      return;
+    }
+    
     var savedTheme = localStorage.getItem('md-theme') || 'auto';
     applyTheme(savedTheme);
     highlightThemeButton(savedTheme);

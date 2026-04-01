@@ -1,8 +1,8 @@
 // src/scss/themes/_dark.scss
 
-// 系统深色主题（自动）
+// 优先级 3：系统深色主题（无用户选择，VSCode 不是 light 时）
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]):not([data-vscode-theme="light"]) {
     --md-bg-primary: #1a1a1a;
     --md-bg-secondary: #1e1e1e;
     --md-bg-code: #252525;
@@ -70,6 +70,73 @@
 }
 
 [data-theme="dark"] {
+  --md-bg-primary: #1a1a1a;
+  --md-bg-secondary: #1e1e1e;
+  --md-bg-code: #252525;
+  --md-bg-blockquote: #242424;
+  --md-bg-table-hover: #2a2a2a;
+  --md-bg-table-header: #2d2d2d;
+  
+  --md-text-primary: #d0d0d0;
+  --md-text-secondary: #cccccc;
+  --md-text-muted: #888888;
+  --md-text-heading: #f0f0f0;
+  --md-text-blockquote: #d0d0d0;
+  --md-text-blockquote-cite: #888888;
+  
+  --md-link: #5ca8ff;
+  --md-link-hover: #ff914d;
+  --md-link-visited: #b380ff;
+  
+  --md-code-text: #ff6b6b;
+  --md-code-border: #4CAF50;
+  --md-code-bg: #2d2d2d;
+  
+  --md-border: #404040;
+  --md-border-heading: #404040;
+  --md-border-blockquote: #388E3C;
+  --md-border-table: #333;
+  --md-border-image: #444;
+  
+  --md-shadow-image: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  --md-shadow-code: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+  input[type=text],
+  input[type=password],
+  textarea,
+  select {
+    background-color: var(--md-bg-code);
+    border-color: #444;
+    color: var(--md-text-primary);
+  }
+
+  input[type=text]:focus,
+  input[type=password]:focus,
+  textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 8px rgba(76, 175, 80, 0.3);
+  }
+
+  button {
+    background: linear-gradient(to bottom, #2c3e50, #34495e);
+    border-color: #2c3e50;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  button:hover {
+    background: linear-gradient(to bottom, #34495e, #2c3e50);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  table th {
+    background-image: linear-gradient(to bottom, #3a3a3a, #2d2d2d);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+  }
+}
+
+// 优先级 2：VSCode 设置为深色（无用户选择时）
+:root:not([data-theme])[data-vscode-theme="dark"] {
   --md-bg-primary: #1a1a1a;
   --md-bg-secondary: #1e1e1e;
   --md-bg-code: #252525;
