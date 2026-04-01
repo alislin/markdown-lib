@@ -1,0 +1,48 @@
+// src/scss/core/_tables.scss
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: solid var(--md-border-table) 1px;
+  border-radius: var(--md-radius-lg);
+}
+
+table tr:hover {
+  background: var(--md-bg-table-hover);
+  transition: all 0.1s ease-in-out;
+}
+
+table td, table th {
+  border-left: 1px solid var(--md-border-table);
+  border-top: 1px solid var(--md-border-table);
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: var(--md-bg-table-header);
+  border: 1px solid var(--md-border-table);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  padding: 5px;
+}
+
+table th:first-child {
+  border-radius: var(--md-radius-lg) 0 0 0;
+}
+
+table th:last-child {
+  border-radius: 0 var(--md-radius-lg) 0 0;
+}
+
+table th:only-child {
+  border-radius: var(--md-radius-lg) var(--md-radius-lg) 0 0;
+}
+
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 var(--md-radius-lg);
+}
+
+table tr:last-child td:last-child {
+  border-radius: 0 0 var(--md-radius-lg) 0;
+}
