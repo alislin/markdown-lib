@@ -1,0 +1,29 @@
+// src/scss/core/_blockquote.scss
+
+aside {
+  display: block;
+  float: right;
+  width: 390px;
+}
+
+blockquote {
+  font-family: var(--md-font-blockquote);
+  border-left: 0.5em solid var(--md-border-blockquote);
+  padding: 0 0 0 2em;
+  margin-left: 0;
+  background-color: var(--md-bg-blockquote);
+}
+
+blockquote cite {
+  font-size: var(--md-font-size-small);
+  line-height: 20px;
+  color: var(--md-text-blockquote-cite);
+}
+
+blockquote cite::before {
+  content: '\2014 \00A0';
+}
+
+blockquote p {
+  color: var(--md-text-blockquote);
+}
