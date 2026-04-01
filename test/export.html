@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MD-Green 主题演示文档</title>
+  <link rel="stylesheet" href="md-green.css">
+</head>
+<body>
+  <h1>MD-Green Markdown 主题演示</h1>
+  <p>这是一个使用 MD-Green 主题渲染的 Markdown 文档。</p>
+
+  <h2>简介</h2>
+  <p>MD-Green 是一个支持<strong>深浅色主题切换</strong>的 Markdown 样式库，适用于：</p>
+  <ul>
+    <li>VSCode Markdown 预览</li>
+    <li>Obsidian 笔记应用</li>
+    <li>Docsify 文档网站</li>
+    <li>导出的静态 HTML 文档</li>
+  </ul>
+
+  <h2>特性</h2>
+  <ol>
+    <li>自动跟随系统主题</li>
+    <li>支持手动切换主题</li>
+    <li>CSS 变量便于自定义</li>
+    <li>模块化 SCSS 源码</li>
+  </ol>
+
+  <h2>代码示例</h2>
+  <pre><code>function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet('World'));</code></pre>
+
+  <h2>表格数据</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>版本</th>
+        <th>文件</th>
+        <th>说明</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>完整版</td>
+        <td>md-green.css</td>
+        <td>支持自动/手动主题切换</td>
+      </tr>
+      <tr>
+        <td>浅色版</td>
+        <td>md-green-light.css</td>
+        <td>固定浅色主题</td>
+      </tr>
+      <tr>
+        <td>深色版</td>
+        <td>md-green-dark.css</td>
+        <td>固定深色主题</td>
+      </tr>
+      <tr>
+        <td>基础版</td>
+        <td>md-green-base.css</td>
+        <td>无主题，供自定义</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>引用</h2>
+  <blockquote>
+    <p>好的代码就像好的笑话：不需要解释。</p>
+    <cite>— 编程格言</cite>
+  </blockquote>
+
+  <h2>图片</h2>
+  <p><img src="https://picsum.photos/400/250?random=5" alt="示例图片"></p>
+
+  <hr>
+
+  <h2>主题切换</h2>
+  <p>如需手动切换主题，在 <code>&lt;html&gt;</code> 标签上添加 <code>data-theme</code> 属性：</p>
+  <pre><code>&lt;html data-theme="dark"&gt;  &lt;!-- 强制深色 --&gt;
+&lt;html data-theme="light"&gt; &lt;!-- 强制浅色 --&gt;</code></pre>
+
+  <footer style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--md-border); color: var(--md-text-muted); font-size: 14px;">
+    <p>MD-Green Theme &copy; 2026 | <a href="https://github.com">GitHub</a></p>
+  </footer>
+</body>
+</html>

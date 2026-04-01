@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obsidian 笔记模拟</title>
+  <link rel="stylesheet" href="../dist/md-green.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #1e1e1e;
+    }
+    .obsidian-app {
+      display: flex;
+      min-height: 100vh;
+    }
+    .obsidian-sidebar {
+      width: 260px;
+      background: #252525;
+      border-right: 1px solid #333;
+      padding: 16px;
+      flex-shrink: 0;
+    }
+    .obsidian-sidebar-header {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      margin-bottom: 12px;
+    }
+    .obsidian-sidebar-item {
+      padding: 6px 12px;
+      color: #ccc;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-bottom: 2px;
+      font-size: 14px;
+    }
+    .obsidian-sidebar-item:hover {
+      background: #333;
+    }
+    .obsidian-sidebar-item.active {
+      background: #4CAF50;
+      color: #fff;
+    }
+    .obsidian-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .obsidian-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+      background: #252525;
+      border-bottom: 1px solid #333;
+    }
+    .obsidian-toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .obsidian-toolbar-title {
+      font-size: 14px;
+      color: #ccc;
+    }
+    .obsidian-toolbar-buttons {
+      display: flex;
+      gap: 8px;
+    }
+    .obsidian-toolbar button {
+      padding: 4px 12px;
+      border: 1px solid #454545;
+      border-radius: 4px;
+      background: transparent;
+      color: #ccc;
+      cursor: pointer;
+      font-size: 12px;
+      font-family: inherit;
+    }
+    .obsidian-toolbar button:hover {
+      background: #333;
+    }
+    .obsidian-toolbar button.active {
+      background: #4CAF50;
+      border-color: #4CAF50;
+      color: #fff;
+    }
+    .obsidian-content {
+      flex: 1;
+      padding: 32px 48px;
+      overflow-y: auto;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .theme-dark .obsidian-content {
+      background: #1e1e1e;
+    }
+    .theme-light .obsidian-content {
+      background: #ffffff;
+    }
+    .obsidian-tags {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--md-border);
+    }
+    .obsidian-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      background: var(--md-bg-code);
+      border-radius: 4px;
+      font-size: 12px;
+      color: var(--md-link);
+      margin-right: 8px;
+    }
+    .obsidian-backlinks {
+      margin-top: 24px;
+      padding: 16px;
+      background: var(--md-bg-secondary);
+      border-radius: 8px;
+    }
+    .obsidian-backlinks h4 {
+      margin: 0 0 12px 0;
+      font-size: 14px;
+      color: var(--md-text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="obsidian-app theme-dark" id="app">
+    <div class="obsidian-sidebar">
+      <div class="obsidian-sidebar-header">文件 Files</div>
+      <div class="obsidian-sidebar-item active">📄 MD-Green 主题测试</div>
+      <div class="obsidian-sidebar-item">📄 使用指南</div>
+      <div class="obsidian-sidebar-item">📁 项目笔记</div>
+      <div class="obsidian-sidebar-item">📄 待办事项</div>
+      
+      <div class="obsidian-sidebar-header" style="margin-top: 24px;">收藏 Starred</div>
+      <div class="obsidian-sidebar-item">⭐ 重要笔记</div>
+    </div>
+    
+    <div class="obsidian-main">
+      <div class="obsidian-toolbar">
+        <div class="obsidian-toolbar-left">
+          <span class="obsidian-toolbar-title">📄 MD-Green 主题测试</span>
+        </div>
+        <div class="obsidian-toolbar-buttons">
+          <button onclick="setTheme('light')">浅色</button>
+          <button onclick="setTheme('dark')" class="active">深色</button>
+          <button onclick="setTheme('auto')">自动</button>
+        </div>
+      </div>
+      
+      <div class="obsidian-content markdown-preview-view markdown-rendered">
+        <h1>MD-Green 主题测试笔记</h1>
+        <p>这是一篇在 <strong>Obsidian</strong> 中创建的笔记，用于测试 MD-Green 主题样式。</p>
+
+        <h2>什么是 Obsidian？</h2>
+        <p><a href="#">Obsidian</a> 是一款强大的知识库管理工具，支持：</p>
+        <ul>
+          <li><strong>双向链接</strong> - 使用 <code>[[笔记名]]</code> 创建链接</li>
+          <li><strong>图谱视图</strong> - 可视化笔记之间的关系</li>
+          <li><strong>插件生态</strong> - 丰富的社区插件</li>
+          <li><strong>本地存储</strong> - 数据完全由你掌控</li>
+        </ul>
+
+        <blockquote>
+          <p>💡 <strong>提示：</strong>MD-Green 主题可以通过 CSS 代码片段的方式应用到 Obsidian 中。</p>
+        </blockquote>
+
+        <h2>快速开始</h2>
+        <ol>
+          <li>打开设置 → 外观 → CSS 代码片段</li>
+          <li>创建新片段，命名为 <code>md-green</code></li>
+          <li>将编译后的 CSS 内容粘贴进去</li>
+          <li>启用该片段</li>
+        </ol>
+
+        <h2>代码示例</h2>
+        <pre><code>```css
+/* 在 Obsidian 中覆盖变量 */
+:root {
+  --md-bg-primary: var(--background-primary);
+  --md-text-primary: var(--text-normal);
+}
+```</code></pre>
+
+        <h2>相关笔记</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>笔记</th>
+              <th>标签</th>
+              <th>更新时间</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#">CSS 主题开发指南</a></td>
+              <td><code>#css</code></td>
+              <td>2026-04-01</td>
+            </tr>
+            <tr>
+              <td><a href="#">Obsidian 配置技巧</a></td>
+              <td><code>#obsidian</code></td>
+              <td>2026-03-28</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr>
+
+        <h3>插入图片</h3>
+        <p><img src="https://picsum.photos/500/280?random=3" alt="笔记配图"></p>
+
+        <div class="obsidian-tags">
+          <span class="obsidian-tag">#主题</span>
+          <span class="obsidian-tag">#CSS</span>
+          <span class="obsidian-tag">#测试</span>
+          <span class="obsidian-tag">#Markdown</span>
+        </div>
+
+        <div class="obsidian-backlinks">
+          <h4>反向链接 Backlinks (2)</h4>
+          <ul style="margin: 0; padding-left: 20px; color: var(--md-text-secondary);">
+            <li><a href="#">CSS 主题开发指南</a> - "推荐使用 MD-Green 主题..."</li>
+            <li><a href="#">我的工具链 2026</a> - "Markdown 样式使用 MD-Green..."</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function setTheme(theme) {
+      const app = document.getElementById('app');
+      document.querySelectorAll('.obsidian-toolbar button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      app.classList.remove('theme-dark', 'theme-light');
+      
+      if (theme === 'auto') {
+        app.classList.add('theme-dark');
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        app.classList.add('theme-' + theme);
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+    }
+  </script>
+</body>
+</html>

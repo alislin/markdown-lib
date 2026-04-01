@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MD-Green Theme - 测试页面</title>
+  <link rel="stylesheet" href="../dist/md-green.css">
+  <style>
+    .theme-switcher {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+      padding: 12px 20px;
+      background: var(--md-bg-secondary);
+      border-bottom: 1px solid var(--md-border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .theme-switcher button {
+      padding: 8px 16px;
+      border: 1px solid var(--md-border-table);
+      border-radius: var(--md-radius-sm);
+      background: var(--md-bg-primary);
+      color: var(--md-text-primary);
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .theme-switcher button:hover {
+      background: var(--md-bg-table-hover);
+    }
+    .theme-switcher button.active {
+      background: #0064cd;
+      color: #fff;
+      border-color: #0064cd;
+    }
+    body {
+      padding-top: 80px;
+    }
+    .section {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px dashed var(--md-border);
+    }
+    .section:last-child {
+      border-bottom: none;
+    }
+    .section-title {
+      font-size: 14px;
+      color: var(--md-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-switcher">
+    <span style="margin-right: 16px; font-weight: bold;">主题切换：</span>
+    <button data-theme="light">浅色</button>
+    <button data-theme="dark">深色</button>
+    <button data-theme="auto" class="active">自动</button>
+  </div>
+
+  <h1>MD-Green Markdown Theme 测试页面</h1>
+  <p>这是一个完整的 Markdown 样式测试页面，展示所有支持的元素类型。</p>
+
+  <div class="section">
+    <div class="section-title">标题 Heading</div>
+    <h1>一级标题 H1</h1>
+    <h2>二级标题 H2</h2>
+    <h3>三级标题 H3</h3>
+    <h4>四级标题 H4</h4>
+    <h5>五级标题 H5</h5>
+  </div>
+
+  <div class="section">
+    <div class="section-title">段落与文本 Paragraph & Text</div>
+    <p>这是普通段落文本。Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
+    <p>段落中可以包含 <strong>加粗文本</strong>、<em>斜体文本</em>、<del>删除线</del> 以及 <a href="#">超链接</a>。</p>
+    <p>你也可以使用 <code>内联代码</code> 在段落中展示代码片段。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">列表 List</div>
+    <h3>无序列表</h3>
+    <ul>
+      <li>第一项</li>
+      <li>第二项
+        <ul>
+          <li>嵌套项 2.1</li>
+          <li>嵌套项 2.2</li>
+        </ul>
+      </li>
+      <li>第三项</li>
+    </ul>
+
+    <h3>有序列表</h3>
+    <ol>
+      <li>步骤一：安装依赖</li>
+      <li>步骤二：配置项目</li>
+      <li>步骤三：运行构建
+        <ol>
+          <li>子步骤 3.1</li>
+          <li>子步骤 3.2</li>
+        </ol>
+      </li>
+    </ol>
+
+    <h3>任务列表</h3>
+    <ul>
+      <li><input type="checkbox" checked disabled> 已完成的任务</li>
+      <li><input type="checkbox" checked disabled> 另一个已完成项</li>
+      <li><input type="checkbox" disabled> 未完成的任务</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">代码块 Code Block</div>
+    <p>内联代码示例：<code>npm run build</code></p>
+    
+    <pre><code>function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+// 调用函数
+const message = greet('World');
+console.log(message);</code></pre>
+
+    <pre><code>/* CSS 示例 */
+.container {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+}</code></pre>
+  </div>
+
+  <div class="section">
+    <div class="section-title">引用块 Blockquote</div>
+    <blockquote>
+      <p>这是一段引用文本。引用块通常用于强调重要的内容或引用他人的话语。</p>
+      <p>引用块可以包含多个段落。</p>
+      <cite>— 引用来源</cite>
+    </blockquote>
+
+    <blockquote>
+      <p>嵌套引用示例：</p>
+      <blockquote>
+        <p>这是嵌套的引用内容。</p>
+      </blockquote>
+    </blockquote>
+  </div>
+
+  <div class="section">
+    <div class="section-title">表格 Table</div>
+    <table>
+      <thead>
+        <tr>
+          <th>功能</th>
+          <th>状态</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>深色模式</td>
+          <td>已完成</td>
+          <td>支持系统自动切换和手动切换</td>
+        </tr>
+        <tr>
+          <td>SCSS 模块化</td>
+          <td>已完成</td>
+          <td>核心样式按功能拆分</td>
+        </tr>
+        <tr>
+          <td>多版本输出</td>
+          <td>已完成</td>
+          <td>完整版、浅色版、深色版、基础版</td>
+        </tr>
+        <tr>
+          <td>自定义主题</td>
+          <td>支持</td>
+          <td>通过 CSS 变量覆盖</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title">图片 Image</div>
+    <p><img src="https://picsum.photos/400/300?random=1" alt="示例图片 1"></p>
+    <p><img src="https://picsum.photos/600/200?random=2" alt="宽幅示例图片"></p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">水平线 Horizontal Rule</div>
+    <p>分隔线上方</p>
+    <hr>
+    <p>分隔线下方</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">定义列表 Definition List</div>
+    <dl>
+      <dt>Markdown</dt>
+      <dd>一种轻量级标记语言，用于使用纯文本格式编写文档。</dd>
+      
+      <dt>CSS 变量</dt>
+      <dd>CSS 自定义属性，允许在样式表中定义可复用的值。</dd>
+      
+      <dt>SCSS</dt>
+      <dd>CSS 预处理器，提供了变量、嵌套、混入等高级功能。</dd>
+    </dl>
+  </div>
+
+  <div class="section">
+    <div class="section-title">表单元素 Form Elements</div>
+    <p>
+      <label>文本输入：<input type="text" placeholder="请输入文本"></label>
+    </p>
+    <p>
+      <label>密码输入：<input type="password" placeholder="请输入密码"></label>
+    </p>
+    <p>
+      <label>下拉选择：
+        <select>
+          <option>选项一</option>
+          <option>选项二</option>
+          <option>选项三</option>
+        </select>
+      </label>
+    </p>
+    <p>
+      <label>多行文本：</label><br>
+      <textarea placeholder="请输入多行文本内容" rows="3"></textarea>
+    </p>
+    <p>
+      <button type="button">普通按钮</button>
+      <input type="submit" value="提交按钮">
+      <input type="reset" value="重置按钮">
+    </p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">工具类 Utility Classes</div>
+    <div class="row">
+      <div class="col" style="background: var(--md-bg-table-hover); padding: 20px;">
+        <h4>第一列</h4>
+        <p>这是使用 <code>.row</code> 和 <code>.col</code> 类创建的两列布局。</p>
+      </div>
+      <div class="col" style="background: var(--md-bg-blockquote); padding: 20px;">
+        <h4>第二列</h4>
+        <p>列宽度自动均分，适合简单的并排布局。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">其他元素 Other Elements</div>
+    <p>键盘按键：<kbd>Ctrl</kbd> + <kbd>C</kbd> 复制，<kbd>Ctrl</kbd> + <kbd>V</kbd> 粘贴</p>
+    <p>高亮标记：<mark>这是被标记高亮的文本</mark>，通常用于强调重点。</p>
+    <p>缩写：<abbr title="Cascading Style Sheets">CSS</abbr> 是一种样式表语言。</p>
+    <p>上下标：H<sub>2</sub>O 水，E = mc<sup>2</sup> 质能方程</p>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.theme-switcher button');
+    
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const theme = btn.dataset.theme;
+        if (theme === 'auto') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

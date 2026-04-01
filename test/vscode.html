@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VSCode Markdown Preview 模拟</title>
+  <link rel="stylesheet" href="../dist/md-green.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #1e1e1e;
+    }
+    .vscode-toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #323233;
+      border-bottom: 1px solid #454545;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 13px;
+      color: #cccccc;
+    }
+    .vscode-toolbar-title {
+      margin-right: 24px;
+      font-weight: 500;
+    }
+    .vscode-toolbar button {
+      padding: 4px 12px;
+      border: 1px solid #454545;
+      border-radius: 2px;
+      background: #0e639c;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 12px;
+      font-family: inherit;
+    }
+    .vscode-toolbar button:hover {
+      background: #1177bb;
+    }
+    .vscode-toolbar button.active {
+      background: #0e639c;
+    }
+    .vscode-toolbar button.outline {
+      background: transparent;
+      color: #cccccc;
+    }
+    .vscode-body {
+      padding: 20px;
+      padding-top: 60px;
+      max-width: 900px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+    .vscode-body.vscode-light {
+      background: #ffffff;
+    }
+    .vscode-body.vscode-dark {
+      background: #1e1e1e;
+    }
+  </style>
+</head>
+<body>
+  <div class="vscode-toolbar">
+    <span class="vscode-toolbar-title">VSCode Markdown Preview</span>
+    <span style="margin-right: 8px; color: #888;">主题：</span>
+    <button onclick="setTheme('light')" class="outline">Light</button>
+    <button onclick="setTheme('dark')" class="outline active">Dark</button>
+    <button onclick="setTheme('auto')" class="outline">Auto</button>
+  </div>
+
+  <div class="vscode-body vscode-dark markdown-preview" id="preview">
+    <h1>VSCode Markdown 预览示例</h1>
+    <p>这是模拟 <strong>Visual Studio Code</strong> Markdown 预览的测试页面。</p>
+
+    <h2>项目结构</h2>
+    <pre><code>project/
+├── src/
+│   ├── index.js
+│   └── styles.css
+├── package.json
+└── README.md</code></pre>
+
+    <h2>安装与使用</h2>
+    <p>安装依赖：</p>
+    <pre><code>npm install</code></pre>
+
+    <p>运行开发服务器：</p>
+    <pre><code>npm run dev</code></pre>
+
+    <h2>配置选项</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>选项</th>
+          <th>类型</th>
+          <th>默认值</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>theme</code></td>
+          <td>string</td>
+          <td><code>'auto'</code></td>
+          <td>主题模式：auto / light / dark</td>
+        </tr>
+        <tr>
+          <td><code>fontSize</code></td>
+          <td>number</td>
+          <td><code>16</code></td>
+          <td>基础字号</td>
+        </tr>
+        <tr>
+          <td><code>lineHeight</code></td>
+          <td>number</td>
+          <td><code>1.6</code></td>
+          <td>行高</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>注意事项</h2>
+    <ul>
+      <li>确保已安装 <a href="#">Node.js 16+</a></li>
+      <li>推荐使用 VSCode 的 <strong>Markdown All in One</strong> 插件</li>
+      <li>支持实时预览和导出 PDF</li>
+    </ul>
+
+    <blockquote>
+      <p><strong>提示：</strong>VSCode 会根据当前编辑器主题自动切换预览主题。</p>
+    </blockquote>
+
+    <h2>快捷键</h2>
+    <p>常用快捷键：</p>
+    <ul>
+      <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd> - 打开预览</li>
+      <li><kbd>Ctrl</kbd> + <kbd>K</kbd> <kbd>V</kbd> - 侧边预览</li>
+      <li><kbd>Ctrl</kbd> + <kbd>B</kbd> - 切换侧边栏</li>
+    </ul>
+
+    <hr>
+
+    <p style="color: var(--md-text-muted); font-size: 14px;">
+      <em>此页面模拟 VSCode Markdown 预览环境，用于测试主题在 VSCode 场景下的显示效果。</em>
+    </p>
+  </div>
+
+  <script>
+    const preview = document.getElementById('preview');
+    
+    function setTheme(theme) {
+      document.querySelectorAll('.vscode-toolbar button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      if (theme === 'auto') {
+        preview.classList.remove('vscode-light', 'vscode-dark');
+        preview.classList.add('vscode-dark');
+      } else {
+        preview.classList.remove('vscode-light', 'vscode-dark');
+        preview.classList.add('vscode-' + theme);
+      }
+      
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    }
+  </script>
+</body>
+</html>

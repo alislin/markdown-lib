@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MD-Green Docsify 文档</title>
+  <link rel="stylesheet" href="../dist/md-green.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .docsify-switcher {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 100;
+      display: flex;
+      gap: 8px;
+    }
+    .docsify-switcher button {
+      padding: 6px 14px;
+      border: 1px solid var(--md-border-table);
+      border-radius: var(--md-radius-sm);
+      background: var(--md-bg-primary);
+      color: var(--md-text-primary);
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    .docsify-switcher button:hover {
+      background: var(--md-bg-table-hover);
+    }
+    .docsify-switcher button.active {
+      background: #4CAF50;
+      color: #fff;
+      border-color: #4CAF50;
+    }
+    .markdown-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    .sidebar {
+      padding: 32px 16px;
+      background: var(--md-bg-secondary);
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar li {
+      margin: 0;
+    }
+    .sidebar a {
+      display: block;
+      padding: 8px 12px;
+      color: var(--md-text-secondary);
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .sidebar a:hover {
+      background: var(--md-bg-table-hover);
+      color: var(--md-link);
+    }
+    .sidebar a.active {
+      background: var(--md-bg-code);
+      color: var(--md-link);
+    }
+    .sidebar > ul > li > p {
+      font-weight: 600;
+      color: var(--md-text-heading);
+      margin: 24px 0 8px 12px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .sidebar-toggle {
+      display: none;
+    }
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        left: -260px;
+        top: 0;
+        bottom: 0;
+        width: 260px;
+        z-index: 50;
+        transition: left 0.3s;
+      }
+      .sidebar.show {
+        left: 0;
+      }
+      .sidebar-toggle {
+        display: block;
+        position: fixed;
+        top: 16px;
+        left: 16px;
+        z-index: 60;
+        padding: 8px;
+        background: var(--md-bg-primary);
+        border: 1px solid var(--md-border);
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .markdown-section {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+  
+  <div class="docsify-switcher">
+    <button data-theme="light" onclick="setTheme('light')">浅色</button>
+    <button data-theme="dark" onclick="setTheme('dark')">深色</button>
+    <button data-theme="auto" onclick="setTheme('auto')" class="active">自动</button>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><p>指南</p></li>
+      <li><a href="#/" class="active">介绍</a></li>
+      <li><a href="#/quickstart">快速开始</a></li>
+      <li><a href="#/usage">使用方法</a></li>
+      <li><p>配置</p></li>
+      <li><a href="#/variables">CSS 变量</a></li>
+      <li><a href="#/themes">主题定制</a></li>
+      <li><p>其他</p></li>
+      <li><a href="#/examples">示例</a></li>
+      <li><a href="#/faq">常见问题</a></li>
+    </ul>
+  </div>
+
+  <div id="main">
+    <div class="markdown-section" id="app"></div>
+  </div>
+
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script>
+    window.$docsify = {
+      loadSidebar: false,
+      loadNavbar: false,
+      el: '#app',
+      name: 'MD-Green Theme',
+      repo: '',
+      markdown: {
+        smartypants: true
+      },
+      routerMode: 'hash'
+    };
+  </script>
+  
+  <script>
+    function setTheme(theme) {
+      document.querySelectorAll('.docsify-switcher button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      if (theme === 'auto') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+    }
+    
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('show');
+    }
+    
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('sidebar').classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>
