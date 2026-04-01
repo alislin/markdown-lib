@@ -1,0 +1,43 @@
+// src/scss/md-green-dark.scss
+
+:root {
+  --md-bg-primary: #1a1a1a;
+  --md-bg-secondary: #1e1e1e;
+  --md-bg-code: #252525;
+  --md-bg-blockquote: #242424;
+  --md-bg-table-hover: #2a2a2a;
+  --md-bg-table-header: #2d2d2d;
+  
+  --md-text-primary: #d0d0d0;
+  --md-text-secondary: #cccccc;
+  --md-text-muted: #888888;
+  --md-text-heading: #f0f0f0;
+  --md-text-blockquote: #d0d0d0;
+  --md-text-blockquote-cite: #888888;
+  
+  --md-link: #5ca8ff;
+  --md-link-hover: #ff914d;
+  --md-link-visited: #b380ff;
+  
+  --md-code-text: #ff6b6b;
+  --md-code-border: #4CAF50;
+  --md-code-bg: #2d2d2d;
+  
+  --md-border: #404040;
+  --md-border-heading: #404040;
+  --md-border-blockquote: #388E3C;
+  --md-border-table: #333;
+  --md-border-image: #444;
+  
+  --md-shadow-image: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  --md-shadow-code: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@use 'core/reset';
+@use 'core/typography';
+@use 'core/code';
+@use 'core/blockquote';
+@use 'core/tables';
+@use 'core/forms';
+@use 'core/images';
+@use 'core/utilities';
