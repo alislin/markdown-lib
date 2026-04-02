@@ -8,6 +8,7 @@
   },
   "main": "dist/md-green.css",
   "scripts": {
+    "release:tag": "node scripts/release.js",
     "build": "node build.js",
     "watch": "sass --watch src/scss:dist --style compressed",
     "dev": "sass src/scss/md-green.scss:dist/md-green.css --watch",

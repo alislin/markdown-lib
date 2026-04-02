@@ -1,7 +1,7 @@
 // src/scss/themes/_light.scss
 
 // 优先级 1：用户手动选择浅色（最高）
-[data-theme="light"] {
+body[data-theme="light"] {
   --md-bg-primary: #ffffff;
   --md-bg-secondary: #f7f7f7;
   --md-bg-code: #f7f7f7;
@@ -40,7 +40,7 @@
 }
 
 // 优先级 2：VSCode 设置为浅色（无用户选择时）
-:root:not([data-theme])[data-vscode-theme="light"] {
+body:not([data-theme])[data-vscode-theme-kind="vscode-light"] {
   --md-bg-primary: #ffffff;
   --md-bg-secondary: #f7f7f7;
   --md-bg-code: #f7f7f7;

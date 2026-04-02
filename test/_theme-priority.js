@@ -49,21 +49,21 @@
   
   function setVscodeTheme(theme) {
     if (theme === 'none' || theme === 'auto') {
-      document.documentElement.removeAttribute('data-vscode-theme');
+      document.body.removeAttribute('data-vscode-theme-kind');
       if (theme === 'auto') {
-        document.documentElement.setAttribute('data-vscode-theme', 'auto');
+        document.body.setAttribute('data-vscode-theme-kind', 'auto');
       }
     } else {
-      document.documentElement.setAttribute('data-vscode-theme', theme);
+      document.body.setAttribute('data-vscode-theme-kind', 'vscode-' + theme);
     }
     localStorage.setItem('vscode-theme', theme);
   }
   
   function setUserTheme(theme) {
     if (theme === 'auto') {
-      document.documentElement.removeAttribute('data-theme');
+      document.body.removeAttribute('data-theme');
     } else {
-      document.documentElement.setAttribute('data-theme', theme);
+      document.body.setAttribute('data-theme', theme);
     }
     localStorage.setItem('md-theme', theme);
     
@@ -79,8 +79,8 @@
   
   function updateStatus() {
     var systemDark = systemThemeDark.matches;
-    var userTheme = document.documentElement.getAttribute('data-theme');
-    var vscodeTheme = document.documentElement.getAttribute('data-vscode-theme');
+    var userTheme = document.body.getAttribute('data-theme');
+    var vscodeTheme = document.body.getAttribute('data-vscode-theme-kind');
     
     var systemStatusEl = document.querySelector('.system-theme-status');
     if (systemStatusEl) {
