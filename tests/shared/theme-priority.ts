@@ -228,24 +228,62 @@ export function runElementStyleTests(config: ThemeTestConfig) {
   test(`[${config.name}] 链接样式 - 浅色模式`, async ({ page }) => {
     await page.emulateMedia({ colorScheme: 'light' });
     await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
     await page.waitForSelector('a', { timeout: 5000 });
 
     const linkColor = await page.locator('a').first().evaluate((el) => {
-      return getComputedStyle(el).getPropertyValue('--md-link').trim();
+      return getComputedStyle(el).color;
     });
 
-    expect(linkColor).toBe(config.lightLink);
+    expect(linkColor).toBe(hexToRgb(config.lightLink!));
   });
 
   test(`[${config.name}] 链接样式 - 深色模式`, async ({ page }) => {
     await page.emulateMedia({ colorScheme: 'dark' });
     await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
     await page.waitForSelector('a', { timeout: 5000 });
 
     const linkColor = await page.locator('a').first().evaluate((el) => {
-      return getComputedStyle(el).getPropertyValue('--md-link').trim();
+      return getComputedStyle(el).color;
     });
 
-    expect(linkColor).toBe(config.darkLink);
+    expect(linkColor).toBe(hexToRgb(config.darkLink!));
+  });
+
+  test(`[${config.name}] 代码样式 - 浅色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'light' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+    await page.waitForSelector('code', { timeout: 5000 });
+
+    const codeInline = await page.locator('code').first().evaluate((el) => {
+      const styles = getComputedStyle(el);
+      return {
+        bg: styles.backgroundColor,
+        text: styles.color,
+      };
+    });
+
+    expect(codeInline.bg).toBe(hexToRgb(config.lightBgCode!));
+    expect(codeInline.text).toBe(hexToRgb(config.lightCodeText!));
+  });
+
+  test(`[${config.name}] 代码样式 - 深色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+    await page.waitForSelector('code', { timeout: 5000 });
+
+    const codeInline = await page.locator('code').first().evaluate((el) => {
+      const styles = getComputedStyle(el);
+      return {
+        bg: styles.backgroundColor,
+        text: styles.color,
+      };
+    });
+
+    expect(codeInline.bg).toBe(hexToRgb(config.darkBgCode!));
+    expect(codeInline.text).toBe(hexToRgb(config.darkCodeText!));
   });
 }

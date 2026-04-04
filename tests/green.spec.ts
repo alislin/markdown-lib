@@ -13,6 +13,10 @@ const config: ThemeTestConfig = {
   darkMarkText: '#fff176',
   lightLink: '#09f',
   darkLink: '#5ca8ff',
+  lightBgCode: '#f7f7f7',
+  darkBgCode: '#252525',
+  lightCodeText: '#F44336',
+  darkCodeText: '#ff6b6b',
 };
 
 runPriorityTests(config);
