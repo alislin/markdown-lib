@@ -286,4 +286,40 @@ export function runElementStyleTests(config: ThemeTestConfig) {
     expect(codeInline.bg).toBe(hexToRgb(config.darkBgCode!));
     expect(codeInline.text).toBe(hexToRgb(config.darkCodeText!));
   });
+
+  test(`[${config.name}] 引用块样式 - 浅色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'light' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+    await page.waitForSelector('blockquote', { timeout: 5000 });
+
+    const blockquoteStyles = await page.locator('blockquote').first().evaluate((el) => {
+      const styles = getComputedStyle(el);
+      return {
+        bg: styles.backgroundColor,
+        border: styles.borderLeftColor,
+      };
+    });
+
+    expect(blockquoteStyles.bg).toBe(config.lightBgBlockquote!);
+    expect(blockquoteStyles.border).toBe(config.lightBorderBlockquote!);
+  });
+
+  test(`[${config.name}] 引用块样式 - 深色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+    await page.waitForSelector('blockquote', { timeout: 5000 });
+
+    const blockquoteStyles = await page.locator('blockquote').first().evaluate((el) => {
+      const styles = getComputedStyle(el);
+      return {
+        bg: styles.backgroundColor,
+        border: styles.borderLeftColor,
+      };
+    });
+
+    expect(blockquoteStyles.bg).toBe(config.darkBgBlockquote!);
+    expect(blockquoteStyles.border).toBe(config.darkBorderBlockquote!);
+  });
 }

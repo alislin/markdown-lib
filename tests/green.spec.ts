@@ -17,6 +17,10 @@ const config: ThemeTestConfig = {
   darkBgCode: '#252525',
   lightCodeText: '#F44336',
   darkCodeText: '#ff6b6b',
+  lightBgBlockquote: 'rgb(244, 255, 244)',
+  darkBgBlockquote: 'rgb(36, 36, 36)',
+  lightBorderBlockquote: 'rgb(9, 180, 66)',
+  darkBorderBlockquote: 'rgb(56, 142, 60)',
 };
 
 runPriorityTests(config);
