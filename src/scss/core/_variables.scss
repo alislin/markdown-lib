@@ -28,6 +28,8 @@ $md-light-colors: (
   'border-blockquote': rgb(9 180 66),
   'border-table': #ccc,
   'border-image': gray,
+  'mark-bg': #fff59d,
+  'mark-text': #000,
   'spacing-xs': 4px,
   'spacing-sm': 8px,
   'spacing-md': 16px,
@@ -80,6 +82,8 @@ $md-dark-colors: (
   'border-blockquote': #388E3C,
   'border-table': #333,
   'border-image': #444,
+  'mark-bg': #5c4e00,
+  'mark-text': #fff176,
   'shadow-image': 5px 5px 15px rgb(0 0 0 / 50%),
   'shadow-code': 0 2px 8px rgb(0 0 0 / 30%),
 );

@@ -135,3 +135,59 @@ export function runInteractionTests(config: ThemeTestConfig) {
     expect(systemStatus).toContain('深色');
   });
 }
+
+export function runMarkStyleTests(config: ThemeTestConfig) {
+  test(`[${config.name}] mark 高亮元素 - 浅色模式样式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'light' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    
+    await page.waitForSelector('mark', { timeout: 5000 });
+    
+    const markStyles = await page.locator('mark').evaluate((el) => {
+      const styles = getComputedStyle(el);
+      return {
+        backgroundColor: styles.backgroundColor,
+        color: styles.color,
+      };
+    });
+    
+    expect(markStyles.backgroundColor).toBe(hexToRgb(config.lightMarkBg));
+    expect(markStyles.color).toBe(hexToRgb(config.lightMarkText));
+  });
+
+  test(`[${config.name}] mark 高亮元素 - 深色模式样式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    
+    await page.waitForSelector('mark', { timeout: 5000 });
+    
+    const markStyles = await page.locator('mark').evaluate((el) => {
+      const styles = getComputedStyle(el);
+      return {
+        backgroundColor: styles.backgroundColor,
+        color: styles.color,
+      };
+    });
+    
+    expect(markStyles.backgroundColor).toBe(hexToRgb(config.darkMarkBg));
+    expect(markStyles.color).toBe(hexToRgb(config.darkMarkText));
+  });
+}
+
+function hexToRgb(hex: string): string {
+  let r: number, g: number, b: number;
+  
+  if (hex.length === 4) {
+    r = parseInt(hex[1] + hex[1], 16);
+    g = parseInt(hex[2] + hex[2], 16);
+    b = parseInt(hex[3] + hex[3], 16);
+  } else if (hex.length === 7) {
+    r = parseInt(hex.slice(1, 3), 16);
+    g = parseInt(hex.slice(3, 5), 16);
+    b = parseInt(hex.slice(5, 7), 16);
+  } else {
+    return hex;
+  }
+  
+  return `rgb(${r}, ${g}, ${b})`;
+}

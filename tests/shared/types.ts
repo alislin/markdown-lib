@@ -4,6 +4,10 @@ export interface ThemeTestConfig {
   darkBgPrimary: string;
   lightTextPrimary: string;
   darkTextPrimary: string;
+  lightMarkBg: string;
+  lightMarkText: string;
+  darkMarkBg: string;
+  darkMarkText: string;
 }
 
 export interface ThemeTestScenario {

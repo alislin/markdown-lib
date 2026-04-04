@@ -1,4 +1,4 @@
-import { runPriorityTests, runInteractionTests } from './shared/theme-priority';
+import { runPriorityTests, runInteractionTests, runMarkStyleTests } from './shared/theme-priority';
 import type { ThemeTestConfig } from './shared/types';
 
 const config: ThemeTestConfig = {
@@ -7,7 +7,12 @@ const config: ThemeTestConfig = {
   darkBgPrimary: '#1a1a1a',
   lightTextPrimary: '#444',
   darkTextPrimary: '#d0d0d0',
+  lightMarkBg: '#fff59d',
+  lightMarkText: '#000',
+  darkMarkBg: '#5c4e00',
+  darkMarkText: '#fff176',
 };
 
 runPriorityTests(config);
 runInteractionTests(config);
+runMarkStyleTests(config);

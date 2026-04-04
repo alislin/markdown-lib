@@ -119,3 +119,10 @@ dl dd {
 p {
   margin-bottom: var(--md-spacing-md);
 }
+
+// === mark 高亮 ===
+mark {
+  background-color: var(--md-mark-bg);
+  color: var(--md-mark-text);
+  padding: 0 2px;
+}
