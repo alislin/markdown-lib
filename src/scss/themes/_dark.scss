@@ -67,7 +67,7 @@ body[data-theme="dark"] kbd {
   border-bottom-color: #444;
   box-shadow: 
     0 2px 0 #333,
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    inset 0 1px 0 rgb(255 255 255 / 10%);
   color: #e0e0e0;
 }
 
@@ -78,7 +78,7 @@ body[data-theme="dark"] kbd {
     border-bottom-color: #444;
     box-shadow: 
       0 2px 0 #333,
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      inset 0 1px 0 rgb(255 255 255 / 10%);
     color: #e0e0e0;
   }
 }
