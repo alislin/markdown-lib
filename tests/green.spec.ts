@@ -11,6 +11,8 @@ const config: ThemeTestConfig = {
   lightMarkText: '#000',
   darkMarkBg: '#5c4e00',
   darkMarkText: '#fff176',
+  lightLink: '#09f',
+  darkLink: '#5ca8ff',
 };
 
 runPriorityTests(config);

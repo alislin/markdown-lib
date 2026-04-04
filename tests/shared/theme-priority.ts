@@ -224,4 +224,28 @@ export function runElementStyleTests(config: ThemeTestConfig) {
     expect(bgPrimary).toBe(config.darkBgPrimary);
     expect(textPrimary).toBe(config.darkTextPrimary);
   });
+
+  test(`[${config.name}] 链接样式 - 浅色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'light' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForSelector('a', { timeout: 5000 });
+
+    const linkColor = await page.locator('a').first().evaluate((el) => {
+      return getComputedStyle(el).getPropertyValue('--md-link').trim();
+    });
+
+    expect(linkColor).toBe(config.lightLink);
+  });
+
+  test(`[${config.name}] 链接样式 - 深色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForSelector('a', { timeout: 5000 });
+
+    const linkColor = await page.locator('a').first().evaluate((el) => {
+      return getComputedStyle(el).getPropertyValue('--md-link').trim();
+    });
+
+    expect(linkColor).toBe(config.darkLink);
+  });
 }
