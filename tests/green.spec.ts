@@ -27,6 +27,8 @@ const config: ThemeTestConfig = {
   darkTextHeading: '#f0f0f0',
   lightBorderHeading: '#efeaea',
   darkBorderHeading: '#404040',
+  lightBorder: '#efeaea',
+  darkBorder: '#404040',
 };
 
 runPriorityTests(config);

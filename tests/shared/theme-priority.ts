@@ -384,4 +384,56 @@ export function runElementStyleTests(config: ThemeTestConfig) {
     expect(headingStyles.color).toBe(hexToRgb(config.darkTextHeading!));
     expect(headingStyles.borderBottomColor).toBe(hexToRgb(config.darkBorderHeading!));
   });
+
+  test(`[${config.name}] kbd 样式 - 浅色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'light' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+    await page.waitForSelector('kbd', { timeout: 5000 });
+
+    const kbdBg = await page.locator('kbd').first().evaluate((el) => {
+      return getComputedStyle(el).backgroundColor;
+    });
+
+    expect(kbdBg).toBe(hexToRgb(config.lightBgCode!));
+  });
+
+  test(`[${config.name}] kbd 样式 - 深色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+    await page.waitForSelector('kbd', { timeout: 5000 });
+
+    const kbdBg = await page.locator('kbd').first().evaluate((el) => {
+      return getComputedStyle(el).backgroundColor;
+    });
+
+    expect(kbdBg).toBe(hexToRgb(config.darkBgCode!));
+  });
+
+  test(`[${config.name}] hr 样式 - 浅色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'light' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+    await page.waitForSelector('hr', { timeout: 5000 });
+
+    const hrBorder = await page.locator('hr').evaluate((el) => {
+      return getComputedStyle(el).backgroundColor;
+    });
+
+    expect(hrBorder).toBe(hexToRgb(config.lightBorder!));
+  });
+
+  test(`[${config.name}] hr 样式 - 深色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+    await page.waitForSelector('hr', { timeout: 5000 });
+
+    const hrBorder = await page.locator('hr').evaluate((el) => {
+      return getComputedStyle(el).backgroundColor;
+    });
+
+    expect(hrBorder).toBe(hexToRgb(config.darkBorder!));
+  });
 }
