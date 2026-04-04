@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/alislin/markdown-lib/compare/v1.0.2...v1.1.0) (2026-04-04)
+
+
+### 🐛 Bug Fixes
+
+* 修复 lint warning - 移除未使用的 catch 参数 ([4fb7f2b](https://github.com/alislin/markdown-lib/commit/4fb7f2b627c21cde4349a2478088d106e6a5aaaa))
+* 修复链接和kbd样式测试选择器问题 ([b310448](https://github.com/alislin/markdown-lib/commit/b31044816bc37e9acc8919df689a41d1c7c60c5a))
+
+
+### ✨ Features
+
+* 扩展 ThemeTestConfig 接口支持完整元素样式 ([f80231c](https://github.com/alislin/markdown-lib/commit/f80231c821b54955b8433587f68f56eef386beac))
+* 添加 body 样式测试（浅色/深色模式） ([51967ba](https://github.com/alislin/markdown-lib/commit/51967baf983c1c501b4a749a4351ca7966205968))
+* 添加 kbd 和 hr 样式测试（浅色/深色模式） ([5f169e7](https://github.com/alislin/markdown-lib/commit/5f169e79022ae0bf32b7d9f4157b5ebf4e28be25))
+* 添加 runElementStyleTests 函数骨架 ([71692ca](https://github.com/alislin/markdown-lib/commit/71692ca733b65e030df49bab97fb4dadb8494bbc))
+* 添加标题样式测试（浅色/深色模式） ([02c2a1a](https://github.com/alislin/markdown-lib/commit/02c2a1a27e091a076db3c07f6964907472b0bf36))
+* 添加表格样式测试（浅色/深色模式） ([cd3cbae](https://github.com/alislin/markdown-lib/commit/cd3cbaedca4d206705352acd56b69b67dc9c936d))
+* 添加代码样式测试（浅色/深色模式） ([0573254](https://github.com/alislin/markdown-lib/commit/057325404fc53ca27c973a34e64a9cebb2358191))
+* 添加链接样式测试（浅色/深色模式） ([3125cb3](https://github.com/alislin/markdown-lib/commit/3125cb31cd0083fd085c92e360b33508bf4c3745))
+* 添加图片样式测试（浅色/深色模式） ([5fa3d01](https://github.com/alislin/markdown-lib/commit/5fa3d018830b8dc35c40068ce4bcec6ab1bb40d0))
+* 添加引用块样式测试（浅色/深色模式） ([88ec7d1](https://github.com/alislin/markdown-lib/commit/88ec7d1a3efa8328468ca5829f944f66aa391e1d))
+* 为浅色主题添加选中文本样式 ([e6d8c54](https://github.com/alislin/markdown-lib/commit/e6d8c5478e65ee74644a0eeb4c553fd245b2d33d))
+* 优化 kbd 键盘按键样式为立体渐变效果，并更新相关测试与预览页面 ([58f7518](https://github.com/alislin/markdown-lib/commit/58f7518a7ebd36785b0eab760aa9f2f2099d4f69))
+
 ## 1.0.1 (2026-04-01)
 
 
