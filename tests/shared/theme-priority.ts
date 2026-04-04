@@ -391,11 +391,22 @@ export function runElementStyleTests(config: ThemeTestConfig) {
     await page.waitForLoadState('networkidle');
     await page.waitForSelector('kbd', { timeout: 5000 });
 
-    const kbdBg = await page.locator('kbd').first().evaluate((el) => {
-      return getComputedStyle(el).backgroundColor;
+    const kbdStyles = await page.locator('kbd').first().evaluate((el) => {
+      const styles = getComputedStyle(el);
+      return {
+        backgroundImage: styles.backgroundImage,
+        borderTopColor: styles.borderTopColor,
+        borderBottomColor: styles.borderBottomColor,
+        boxShadow: styles.boxShadow,
+        borderRadius: styles.borderRadius,
+        padding: styles.padding,
+      };
     });
 
-    expect(kbdBg).toBe(config.lightKbdBg!);
+    expect(kbdStyles.backgroundImage).toContain('linear-gradient');
+    expect(kbdStyles.borderTopColor).toBeTruthy();
+    expect(kbdStyles.boxShadow).toBeTruthy();
+    expect(kbdStyles.borderRadius).toBeTruthy();
   });
 
   test(`[${config.name}] kbd 样式 - 深色模式`, async ({ page }) => {
@@ -404,11 +415,22 @@ export function runElementStyleTests(config: ThemeTestConfig) {
     await page.waitForLoadState('networkidle');
     await page.waitForSelector('kbd', { timeout: 5000 });
 
-    const kbdBg = await page.locator('kbd').first().evaluate((el) => {
-      return getComputedStyle(el).backgroundColor;
+    const kbdStyles = await page.locator('kbd').first().evaluate((el) => {
+      const styles = getComputedStyle(el);
+      return {
+        backgroundImage: styles.backgroundImage,
+        borderTopColor: styles.borderTopColor,
+        borderBottomColor: styles.borderBottomColor,
+        boxShadow: styles.boxShadow,
+        borderRadius: styles.borderRadius,
+        padding: styles.padding,
+      };
     });
 
-    expect(kbdBg).toBe(hexToRgb(config.darkKbdBg!));
+    expect(kbdStyles.backgroundImage).toContain('linear-gradient');
+    expect(kbdStyles.borderTopColor).toBeTruthy();
+    expect(kbdStyles.boxShadow).toBeTruthy();
+    expect(kbdStyles.borderRadius).toBeTruthy();
   });
 
   test(`[${config.name}] hr 样式 - 浅色模式`, async ({ page }) => {

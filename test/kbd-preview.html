@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device=device-width, initial-scale=1.0">
+  <title>KBD 样式预览 - 键盘按键效果</title>
+  <link rel="stylesheet" href="../dist/md-green.css">
+  <link rel="stylesheet" href="_shared/nav.css">
+  <style>
+    body {
+      padding-top: 72px;
+    }
+    .section {
+      margin: 48px 0;
+      padding: 32px;
+      background: var(--md-bg-secondary);
+      border-radius: 8px;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: var(--md-text-heading);
+    }
+    .kbd-group {
+      margin: 16px 0;
+      font-size: 16px;
+      line-height: 2;
+    }
+    
+    /* 方案 A: 基础样式（当前） */
+    .style-a kbd {
+      background-color: var(--md-bg-code);
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-family: var(--md-font-code);
+      font-size: 0.9em;
+    }
+    
+    /* 方案 B: 轻度立体效果 */
+    .style-b kbd {
+      background-color: var(--md-bg-code);
+      border: 1px solid #bbb;
+      border-bottom-width: 3px;
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-family: var(--md-font-code);
+      font-size: 0.9em;
+      box-shadow: 0 2px 0 #999;
+    }
+    
+    /* 方案 C: 经典键盘按键效果 */
+    .style-c kbd {
+      background: linear-gradient(180deg, #f8f8f8 0%, #e8e8e8 100%);
+      border: 1px solid #bbb;
+      border-bottom-color: #999;
+      border-radius: 5px;
+      padding: 4px 10px;
+      font-family: var(--md-font-code);
+      font-size: 0.9em;
+      box-shadow: 
+        0 2px 0 #888,
+        inset 0 1px 0 #fff;
+      color: #333;
+    }
+    
+    /* 方案 D: macOS 风格 */
+    .style-d kbd {
+      background: linear-gradient(180deg, #fafafa 0%, #e5e5e5 100%);
+      border: 1px solid #d1d1d1;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Mono", var(--md-font-code);
+      font-size: 0.85em;
+      box-shadow: 
+        0 1px 2px rgba(0,0,0,0.1),
+        0 1px 0 #fff inset;
+      color: #333;
+      font-weight: 500;
+    }
+    
+    /* 方案 E: Windows 风格 */
+    .style-e kbd {
+      background: linear-gradient(180deg, #f0f0f0 0%, #d8d8d8 100%);
+      border: 1px solid #c0c0c0;
+      border-bottom-width: 2px;
+      border-bottom-color: #a0a0a0;
+      border-radius: 3px;
+      padding: 4px 8px;
+      font-family: "Segoe UI", var(--md-font-code);
+      font-size: 0.9em;
+      box-shadow: 
+        0 2px 0 rgba(0,0,0,0.15),
+        inset 0 -1px 0 rgba(255,255,255,0.8);
+      color: #333;
+    }
+    
+    /* 深色模式适配 */
+    body[data-theme="dark"] .style-c kbd,
+    body[data-theme="dark"] .style-d kbd,
+    body[data-theme="dark"] .style-e kbd {
+      background: linear-gradient(180deg, #3a3a3a 0%, #2a2a2a 100%);
+      border-color: #555;
+      border-bottom-color: #444;
+      box-shadow: 
+        0 2px 0 #333,
+        inset 0 1px 0 rgba(255,255,255,0.1);
+      color: #e0e0e0;
+    }
+    
+    body[data-theme="dark"] .style-b kbd {
+      background-color: #2d2d2d;
+      border-color: #555;
+      border-bottom-color: #444;
+      box-shadow: 0 2px 0 #333;
+      color: #d0d0d0;
+    }
+    
+    body[data-theme="dark"] .style-a kbd {
+      background-color: #2d2d2d;
+      border-color: #555;
+      color: #d0d0d0;
+    }
+  </style>
+</head>
+<body>
+  <nav class="md-nav">
+    <a class="md-nav-brand" href="index.html">Markdown Theme</a>
+    <div class="md-nav-links">
+      <a href="index.html">首页</a>
+      <a href="kbd-preview.html">KBD预览</a>
+    </div>
+    <div class="md-nav-controls">
+      <div class="md-theme-selector"></div>
+      <div class="md-nav-theme">
+        <button data-theme="light">浅色</button>
+        <button data-theme="dark">深色</button>
+        <button data-theme="auto">自动</button>
+      </div>
+    </div>
+  </nav>
+
+  <h1>KBD 键盘按键样式方案对比</h1>
+  <p class="subtitle">选择你喜欢的键盘按键立体效果风格</p>
+  
+  <div class="section">
+    <div class="section-title">方案 A：基础样式（当前默认）</div>
+    <p class="subtitle">简单背景色 + 细边框</p>
+    <div class="kbd-group style-a">
+      <p>快捷键：<kbd>Ctrl</kbd> + <kbd>C</kbd> 复制</p>
+      <p>组合键：<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> 新建窗口</p>
+      <p>单独按键：<kbd>Enter</kbd> <kbd>Esc</kbd> <kbd>Tab</kbd> <kbd>Space</kbd></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">方案 B：轻度立体效果</div>
+    <p class="subtitle">底部粗边框 + 下移阴影</p>
+    <div class="kbd-group style-b">
+      <p>快捷键：<kbd>Ctrl</kbd> + <kbd>C</kbd> 复制</p>
+      <p>组合键：<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> 新建窗口</p>
+      <p>单独按键：<kbd>Enter</kbd> <kbd>Esc</kbd> <kbd>Tab</kbd> <kbd>Space</kbd></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">方案 C：经典键盘按键效果</div>
+    <p class="subtitle">渐变背景 + 多层阴影 + 高光</p>
+    <div class="kbd-group style-c">
+      <p>快捷键：<kbd>Ctrl</kbd> + <kbd>C</kbd> 复制</p>
+      <p>组合键：<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> 新建窗口</p>
+      <p>单独按键：<kbd>Enter</kbd> <kbd>Esc</kbd> <kbd>Tab</kbd> <kbd>Space</kbd></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">方案 D：macOS 风格</div>
+    <p class="subtitle">圆角按键 + 轻柔阴影 + 系统字体</p>
+    <div class="kbd-group style-d">
+      <p>快捷键：<kbd>⌘</kbd> + <kbd>C</kbd> 复制</p>
+      <p>组合键：<kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>N</kbd> 新建窗口</p>
+      <p>单独按键：<kbd>Return</kbd> <kbd>Esc</kbd> <kbd>Tab</kbd> <kbd>Space</kbd></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">方案 E：Windows 风格</div>
+    <p class="subtitle">方正按键 + 明显阴影 + Segoe UI 字体</p>
+    <div class="kbd-group style-e">
+      <p>快捷键：<kbd>Ctrl</kbd> + <kbd>C</kbd> 复制</p>
+      <p>组合键：<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> 新建窗口</p>
+      <p>单独按键：<kbd>Enter</kbd> <kbd>Esc</kbd> <kbd>Tab</kbd> <kbd>Space</kbd></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">💡 说明</div>
+    <ul>
+      <li><strong>方案 A</strong>：当前默认样式，最简单</li>
+      <li><strong>方案 B</strong>：轻度立体感，简洁但有按键感</li>
+      <li><strong>方案 C</strong>：经典键盘按键，立体效果最明显（推荐）</li>
+      <li><strong>方案 D</strong>：macOS 风格，优雅圆润</li>
+      <li><strong>方案 E</strong>：Windows 风格，方正实用</li>
+    </ul>
+    <p>可以在浅色/深色模式下切换查看效果对比。</p>
+  </div>
+
+  <script src="_shared/theme-selector.js"></script>
+  <script src="_shared/nav.js"></script>
+</body>
+</html>

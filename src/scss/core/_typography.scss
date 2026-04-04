@@ -120,6 +120,22 @@ p {
   margin-bottom: var(--md-spacing-md);
 }
 
+// === kbd 键盘按键 ===
+kbd {
+  background: linear-gradient(180deg, #f8f8f8 0%, #e8e8e8 100%);
+  border: 1px solid #bbb;
+  border-bottom-color: #999;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-family: var(--md-font-code);
+  font-size: 0.9em;
+  box-shadow: 
+    0 2px 0 #888,
+    inset 0 1px 0 #fff;
+  color: #333;
+  margin: 0 2px;
+}
+
 // === mark 高亮 ===
 mark {
   background-color: var(--md-mark-bg);
