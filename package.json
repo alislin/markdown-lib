@@ -1,6 +1,6 @@
 {
   "name": "md-green-theme",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Markdown theme with light/dark mode support",
   "repository": {
     "type": "git",
@@ -9,6 +9,7 @@
   "main": "dist/md-green.css",
   "scripts": {
     "build": "node build.js",
+    "release:tag": "node scripts/release.js",
     "watch": "sass --watch src/scss:dist --style compressed",
     "dev": "sass src/scss/md-green.scss:dist/md-green.css --watch",
     "test": "npx playwright test",

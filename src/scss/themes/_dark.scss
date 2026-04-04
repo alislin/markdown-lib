@@ -4,26 +4,26 @@
 
 // 优先级 3：系统深色主题（无用户选择，VSCode 不是 light 时）
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme]):not([data-vscode-theme="light"]) {
+  body:not([data-theme]):not([data-vscode-theme-kind*="light"]) {
     @include dark-colors;
     @include dark-forms;
   }
 }
 
 // 优先级 1：用户手动选择深色（最高）
-[data-theme="dark"] {
+body[data-theme="dark"] {
   @include dark-colors;
   @include dark-forms;
 }
 
 // 优先级 2：VSCode 设置为深色（无用户选择时）
-:root:not([data-theme])[data-vscode-theme="dark"] {
+body:not([data-theme])[data-vscode-theme-kind="vscode-dark"] {
   @include dark-colors;
   @include dark-forms;
 }
 
 // === 选中文本 ===
-[data-theme="dark"] ::selection {
+body[data-theme="dark"] ::selection {
   background-color: rgba(76, 175, 80, 0.3);
   color: #ffffff;
 }
@@ -36,7 +36,7 @@
 }
 
 // === 滚动条 ===
-[data-theme="dark"] {
+body[data-theme="dark"] {
   scrollbar-width: thin;
   scrollbar-color: #444 #222;
 }
@@ -61,13 +61,13 @@
 }
 
 // === kbd 和 mark ===
-[data-theme="dark"] kbd {
+body[data-theme="dark"] kbd {
   background-color: var(--md-bg-code);
   border-color: #444;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 
-[data-theme="dark"] mark {
+body[data-theme="dark"] mark {
   background-color: rgba(255, 235, 59, 0.2);
   color: #fff;
   padding: 0 2px;

@@ -1,5 +1,7 @@
 # MD-Green Markdown Theme
 
+[![npm version](https://img.shields.io/npm/v/md-green-theme.svg)](https://www.npmjs.com/package/md-green-theme)
+
 一个支持深浅色主题切换的 Markdown 样式库，适用于 VSCode、Obsidian、Docsify 等环境。
 
 ## 安装
@@ -9,6 +11,23 @@
 ```bash
 npm install md-green-theme
 ```
+
+## CDN 引用
+
+通过 jsDelivr 引入：
+
+```html
+<!-- 最新版本 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/md-green-theme@latest/dist/md-green.css">
+
+<!-- 指定版本（推荐用于生产环境） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/md-green-theme@1.0.2/dist/md-green.css">
+```
+
+可选主题文件：
+- `md-green.css` - 完整版（自动主题切换）
+- `md-green-light.css` - 仅浅色模式
+- `md-green-dark.css` - 仅深色模式
 
 ## 使用方式
 

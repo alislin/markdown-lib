@@ -27,21 +27,21 @@ const scenarios: ThemeTestScenario[] = [
 async function setupTheme(page: Page, scenario: ThemeTestScenario) {
   await page.evaluate((s) => {
     localStorage.clear();
-    document.documentElement.removeAttribute('data-theme');
-    document.documentElement.removeAttribute('data-vscode-theme');
+    document.body.removeAttribute('data-theme');
+    document.body.removeAttribute('data-vscode-theme-kind');
     
     if (s.vscodeTheme !== 'none') {
       localStorage.setItem('vscode-theme', s.vscodeTheme);
       if (s.vscodeTheme !== 'auto') {
-        document.documentElement.setAttribute('data-vscode-theme', s.vscodeTheme);
+        document.body.setAttribute('data-vscode-theme-kind', 'vscode-' + s.vscodeTheme);
       } else {
-        document.documentElement.setAttribute('data-vscode-theme', 'auto');
+        document.body.setAttribute('data-vscode-theme-kind', 'auto');
       }
     }
     
     if (s.userTheme !== 'none' && s.userTheme !== 'auto') {
       localStorage.setItem('md-theme', s.userTheme);
-      document.documentElement.setAttribute('data-theme', s.userTheme);
+      document.body.setAttribute('data-theme', s.userTheme);
     }
     
     if (s.userTheme === 'auto') {
@@ -61,8 +61,8 @@ async function verifyTheme(page: Page, scenario: ThemeTestScenario) {
   expect(themeSource).toBe(expectedSourceText);
   
   const bgColor = await page.evaluate(() => {
-    return document.documentElement.style.getPropertyValue('--md-bg-primary') || 
-           getComputedStyle(document.documentElement).getPropertyValue('--md-bg-primary');
+    return document.body.style.getPropertyValue('--md-bg-primary') || 
+           getComputedStyle(document.body).getPropertyValue('--md-bg-primary');
   });
   
   if (scenario.expectedTheme === 'dark') {
@@ -85,6 +85,10 @@ for (const scenario of scenarios) {
     await page.reload();
     await page.waitForLoadState('networkidle');
     
+    if (scenario.vscodeTheme !== 'none' && scenario.vscodeTheme !== 'auto') {
+      await page.waitForFunction(() => document.body.hasAttribute('data-vscode-theme-kind'));
+    }
+    
     await verifyTheme(page, scenario);
   });
 }
@@ -94,7 +98,7 @@ test('场景对照表当前行高亮', async ({ page }) => {
   await page.goto('/test/theme-priority.html');
   await page.waitForLoadState('networkidle');
   
-  await setupTheme(page, { systemTheme: 'dark', vscodeTheme: 'light', userTheme: 'dark', expectedTheme: 'dark', expectedSource: '用户', description: '' });
+  await setupTheme(page, { systemTheme: 'dark', vscodeTheme: 'light', userTheme: 'dark', expectedTheme: 'dark', expectedSource: '用户选择', description: '' });
   await page.reload();
   await page.waitForLoadState('networkidle');
   
@@ -126,8 +130,8 @@ test('VSCode 设置按钮交互', async ({ page }) => {
   await page.click('.vscode-theme-btn[data-vscode="dark"]');
   await expect(page.locator('.vscode-theme-btn[data-vscode="dark"]')).toHaveClass(/active/);
   
-  const vscodeAttr = await page.evaluate(() => document.documentElement.getAttribute('data-vscode-theme'));
-  expect(vscodeAttr).toBe('dark');
+  const vscodeAttr = await page.evaluate(() => document.body.getAttribute('data-vscode-theme-kind'));
+  expect(vscodeAttr).toBe('vscode-dark');
 });
 
 test('用户选择按钮交互', async ({ page }) => {
@@ -137,7 +141,7 @@ test('用户选择按钮交互', async ({ page }) => {
   await page.click('.user-theme-btn[data-user="light"]');
   await expect(page.locator('.user-theme-btn[data-user="light"]')).toHaveClass(/active/);
   
-  const userAttr = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
+  const userAttr = await page.evaluate(() => document.body.getAttribute('data-theme'));
   expect(userAttr).toBe('light');
 });
 
