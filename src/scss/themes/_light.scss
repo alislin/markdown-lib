@@ -18,3 +18,10 @@ body:not([data-theme])[data-vscode-theme-kind="vscode-light"] {
   @include light-colors;
   @include light-table-header;
 }
+
+// === 选中文本 ===
+body[data-theme="light"] ::selection,
+body:not([data-theme])[data-vscode-theme-kind="vscode-light"] ::selection {
+  background-color: rgb(76 175 80 / 30%);
+  color: #333;
+}
