@@ -322,4 +322,30 @@ export function runElementStyleTests(config: ThemeTestConfig) {
     expect(blockquoteStyles.bg).toBe(config.darkBgBlockquote!);
     expect(blockquoteStyles.border).toBe(config.darkBorderBlockquote!);
   });
+
+  test(`[${config.name}] 表格样式 - 浅色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'light' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+    await page.waitForSelector('table th', { timeout: 5000 });
+
+    const tableHeaderBg = await page.locator('table th').first().evaluate((el) => {
+      return getComputedStyle(el).backgroundColor;
+    });
+
+    expect(tableHeaderBg).toBe(hexToRgb(config.lightBgTableHeader!));
+  });
+
+  test(`[${config.name}] 表格样式 - 深色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+    await page.waitForSelector('table th', { timeout: 5000 });
+
+    const tableHeaderBg = await page.locator('table th').first().evaluate((el) => {
+      return getComputedStyle(el).backgroundColor;
+    });
+
+    expect(tableHeaderBg).toBe(hexToRgb(config.darkBgTableHeader!));
+  });
 }

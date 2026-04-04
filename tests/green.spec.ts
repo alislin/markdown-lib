@@ -21,6 +21,8 @@ const config: ThemeTestConfig = {
   darkBgBlockquote: 'rgb(36, 36, 36)',
   lightBorderBlockquote: 'rgb(9, 180, 66)',
   darkBorderBlockquote: 'rgb(56, 142, 60)',
+  lightBgTableHeader: '#dce9f9',
+  darkBgTableHeader: '#2d2d2d',
 };
 
 runPriorityTests(config);
