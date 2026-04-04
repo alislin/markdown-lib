@@ -65,7 +65,7 @@ run('git checkout main');
 log('合并 dev 到 main...');
 try {
   run('git merge dev --no-edit');
-} catch (e) {
+} catch {
   run('git merge --abort', { exit: false });
   run('git checkout dev');
   console.error('❌ 合并冲突，请手动解决后重试');
