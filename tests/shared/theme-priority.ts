@@ -436,4 +436,38 @@ export function runElementStyleTests(config: ThemeTestConfig) {
 
     expect(hrBorder).toBe(hexToRgb(config.darkBorder!));
   });
+
+  test(`[${config.name}] 图片样式 - 浅色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'light' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+    await page.waitForSelector('img', { timeout: 5000 });
+
+    const imgStyles = await page.locator('img').first().evaluate((el) => {
+      const styles = getComputedStyle(el);
+      return {
+        border: styles.border,
+        boxShadow: styles.boxShadow,
+      };
+    });
+
+    expect(imgStyles.border).toContain(config.lightBorderImage!);
+  });
+
+  test(`[${config.name}] 图片样式 - 深色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+    await page.waitForSelector('img', { timeout: 5000 });
+
+    const imgStyles = await page.locator('img').first().evaluate((el) => {
+      const styles = getComputedStyle(el);
+      return {
+        border: styles.border,
+        boxShadow: styles.boxShadow,
+      };
+    });
+
+    expect(imgStyles.border).toContain(config.darkBorderImage!);
+  });
 }

@@ -29,6 +29,10 @@ const config: ThemeTestConfig = {
   darkBorderHeading: '#404040',
   lightBorder: '#efeaea',
   darkBorder: '#404040',
+  lightBorderImage: 'rgb(128, 128, 128)',
+  darkBorderImage: 'rgb(68, 68, 68)',
+  lightShadowImage: 'none',
+  darkShadowImage: 'none',
 };
 
 runPriorityTests(config);
