@@ -229,9 +229,9 @@ export function runElementStyleTests(config: ThemeTestConfig) {
     await page.emulateMedia({ colorScheme: 'light' });
     await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
     await page.waitForLoadState('networkidle');
-    await page.waitForSelector('a', { timeout: 5000 });
+    await page.waitForSelector('.section p a', { timeout: 5000 });
 
-    const linkColor = await page.locator('a').first().evaluate((el) => {
+    const linkColor = await page.locator('.section p a').first().evaluate((el) => {
       return getComputedStyle(el).color;
     });
 
@@ -242,9 +242,9 @@ export function runElementStyleTests(config: ThemeTestConfig) {
     await page.emulateMedia({ colorScheme: 'dark' });
     await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
     await page.waitForLoadState('networkidle');
-    await page.waitForSelector('a', { timeout: 5000 });
+    await page.waitForSelector('.section p a', { timeout: 5000 });
 
-    const linkColor = await page.locator('a').first().evaluate((el) => {
+    const linkColor = await page.locator('.section p a').first().evaluate((el) => {
       return getComputedStyle(el).color;
     });
 
@@ -395,7 +395,7 @@ export function runElementStyleTests(config: ThemeTestConfig) {
       return getComputedStyle(el).backgroundColor;
     });
 
-    expect(kbdBg).toBe(hexToRgb(config.lightBgCode!));
+    expect(kbdBg).toBe(config.lightKbdBg!);
   });
 
   test(`[${config.name}] kbd 样式 - 深色模式`, async ({ page }) => {
@@ -408,7 +408,7 @@ export function runElementStyleTests(config: ThemeTestConfig) {
       return getComputedStyle(el).backgroundColor;
     });
 
-    expect(kbdBg).toBe(hexToRgb(config.darkBgCode!));
+    expect(kbdBg).toBe(hexToRgb(config.darkKbdBg!));
   });
 
   test(`[${config.name}] hr 样式 - 浅色模式`, async ({ page }) => {

@@ -42,6 +42,8 @@ export interface ThemeTestConfig {
   darkBorderImage?: string;
   lightShadowImage?: string;
   darkShadowImage?: string;
+  lightKbdBg?: string;
+  darkKbdBg?: string;
 }
 
 export interface ThemeTestScenario {

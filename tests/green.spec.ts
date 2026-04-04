@@ -33,6 +33,8 @@ const config: ThemeTestConfig = {
   darkBorderImage: 'rgb(68, 68, 68)',
   lightShadowImage: 'none',
   darkShadowImage: 'none',
+  lightKbdBg: 'rgba(0, 0, 0, 0)',
+  darkKbdBg: '#2d2d2d',
 };
 
 runPriorityTests(config);
