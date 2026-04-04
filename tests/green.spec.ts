@@ -23,6 +23,10 @@ const config: ThemeTestConfig = {
   darkBorderBlockquote: 'rgb(56, 142, 60)',
   lightBgTableHeader: '#dce9f9',
   darkBgTableHeader: '#2d2d2d',
+  lightTextHeading: '#111',
+  darkTextHeading: '#f0f0f0',
+  lightBorderHeading: '#efeaea',
+  darkBorderHeading: '#404040',
 };
 
 runPriorityTests(config);
