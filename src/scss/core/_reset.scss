@@ -1,5 +1,7 @@
 // src/scss/core/_reset.scss
 
+@use 'variables' as *;
+
 body {
   margin: 0 auto;
   font-family: var(--md-font-body);
@@ -9,13 +11,13 @@ body {
   background-color: var(--md-bg-primary);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $md-breakpoint-md) {
   body {
     margin: 10px auto;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $md-breakpoint-md) {
   body {
     padding: 20px;
   }

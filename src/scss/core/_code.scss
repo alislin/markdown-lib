@@ -1,5 +1,7 @@
 // src/scss/core/_code.scss
 
+@use 'variables' as *;
+
 code, pre {
   border-radius: var(--md-radius-sm);
   background-color: var(--md-bg-code);
@@ -33,7 +35,7 @@ pre > code {
   background: 0 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $md-breakpoint-md) {
   pre {
     margin: 10px -20px;
     border-radius: 0;

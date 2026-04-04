@@ -1,0 +1,113 @@
+// src/scss/core/_mixins.scss
+
+// === 深色主题颜色变量 ===
+@mixin dark-colors {
+  --md-bg-primary: #1a1a1a;
+  --md-bg-secondary: #1e1e1e;
+  --md-bg-code: #252525;
+  --md-bg-blockquote: #242424;
+  --md-bg-table-hover: #2a2a2a;
+  --md-bg-table-header: #2d2d2d;
+  
+  --md-text-primary: #d0d0d0;
+  --md-text-secondary: #cccccc;
+  --md-text-muted: #888888;
+  --md-text-heading: #f0f0f0;
+  --md-text-blockquote: #d0d0d0;
+  --md-text-blockquote-cite: #888888;
+  
+  --md-link: #5ca8ff;
+  --md-link-hover: #ff914d;
+  --md-link-visited: #b380ff;
+  
+  --md-code-text: #ff6b6b;
+  --md-code-border: #4CAF50;
+  --md-code-bg: #2d2d2d;
+  
+  --md-border: #404040;
+  --md-border-heading: #404040;
+  --md-border-blockquote: #388E3C;
+  --md-border-table: #333;
+  --md-border-image: #444;
+  
+  --md-shadow-image: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  --md-shadow-code: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+// === 深色主题表单样式 ===
+@mixin dark-forms {
+  input[type=text],
+  input[type=password],
+  textarea,
+  select {
+    background-color: var(--md-bg-code);
+    border-color: #444;
+    color: var(--md-text-primary);
+  }
+
+  input[type=text]:focus,
+  input[type=password]:focus,
+  textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 8px rgba(76, 175, 80, 0.3);
+  }
+
+  button {
+    background: linear-gradient(to bottom, #2c3e50, #34495e);
+    border-color: #2c3e50;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  button:hover {
+    background: linear-gradient(to bottom, #34495e, #2c3e50);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  table th {
+    background-image: linear-gradient(to bottom, #3a3a3a, #2d2d2d);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+  }
+}
+
+// === 浅色主题颜色变量 ===
+@mixin light-colors {
+  --md-bg-primary: #ffffff;
+  --md-bg-secondary: #f7f7f7;
+  --md-bg-code: #f7f7f7;
+  --md-bg-blockquote: rgb(244, 255, 244);
+  --md-bg-table-hover: #fbf8e9;
+  --md-bg-table-header: #dce9f9;
+  
+  --md-text-primary: #444444;
+  --md-text-secondary: #666666;
+  --md-text-muted: #999999;
+  --md-text-heading: #111111;
+  --md-text-blockquote: #3c3c3c;
+  --md-text-blockquote-cite: #bfbfbf;
+  
+  --md-link: #0099ff;
+  --md-link-hover: #ff6600;
+  --md-link-visited: purple;
+  
+  --md-code-text: #F44336;
+  --md-code-border: #6CE26C;
+  --md-code-bg: #f7f7f7;
+  
+  --md-border: #EFEAEA;
+  --md-border-heading: #EFEAEA;
+  --md-border-blockquote: rgb(9, 180, 66);
+  --md-border-table: #ccc;
+  --md-border-image: gray;
+  
+  --md-shadow-image: 5px 5px 5px grey;
+  --md-shadow-code: none;
+}
+
+// === 浅色主题表格样式 ===
+@mixin light-table-header {
+  table th {
+    background-image: linear-gradient(to bottom, #e8f4fc, #dce9f9);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+}

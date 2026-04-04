@@ -1,42 +1,42 @@
-// src/scss/core/_variables.scss
+// src/scss/core/_variables-dark.scss
 
 // === 断点（SCSS 变量，用于 @media） ===
 $md-breakpoint-md: 768px;
 
-// 浅色主题默认变量
+// 深色主题默认变量
 :root {
   // === 背景色 ===
-  --md-bg-primary: #ffffff;
-  --md-bg-secondary: #f7f7f7;
-  --md-bg-code: #f7f7f7;
-  --md-bg-blockquote: rgb(244, 255, 244);
-  --md-bg-table-hover: #fbf8e9;
-  --md-bg-table-header: #dce9f9;
+  --md-bg-primary: #1a1a1a;
+  --md-bg-secondary: #1e1e1e;
+  --md-bg-code: #252525;
+  --md-bg-blockquote: #242424;
+  --md-bg-table-hover: #2a2a2a;
+  --md-bg-table-header: #2d2d2d;
   
   // === 文本色 ===
-  --md-text-primary: #444444;
-  --md-text-secondary: #666666;
-  --md-text-muted: #999999;
-  --md-text-heading: #111111;
-  --md-text-blockquote: #3c3c3c;
-  --md-text-blockquote-cite: #bfbfbf;
+  --md-text-primary: #d0d0d0;
+  --md-text-secondary: #cccccc;
+  --md-text-muted: #888888;
+  --md-text-heading: #f0f0f0;
+  --md-text-blockquote: #d0d0d0;
+  --md-text-blockquote-cite: #888888;
   
   // === 链接色 ===
-  --md-link: #0099ff;
-  --md-link-hover: #ff6600;
-  --md-link-visited: purple;
+  --md-link: #5ca8ff;
+  --md-link-hover: #ff914d;
+  --md-link-visited: #b380ff;
   
   // === 代码色 ===
-  --md-code-text: #F44336;
-  --md-code-border: #6CE26C;
-  --md-code-bg: #f7f7f7;
+  --md-code-text: #ff6b6b;
+  --md-code-border: #4CAF50;
+  --md-code-bg: #2d2d2d;
   
   // === 边框色 ===
-  --md-border: #EFEAEA;
-  --md-border-heading: #EFEAEA;
-  --md-border-blockquote: rgb(9, 180, 66);
-  --md-border-table: #ccc;
-  --md-border-image: gray;
+  --md-border: #404040;
+  --md-border-heading: #404040;
+  --md-border-blockquote: #388E3C;
+  --md-border-table: #333;
+  --md-border-image: #444;
   
   // === 间距 ===
   --md-spacing-xs: 4px;
@@ -72,6 +72,6 @@ $md-breakpoint-md: 768px;
   --md-line-height-code: 1.7em;
   
   // === 阴影 ===
-  --md-shadow-image: 5px 5px 5px grey;
-  --md-shadow-code: none;
+  --md-shadow-image: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  --md-shadow-code: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
