@@ -23,7 +23,7 @@ table td, table th {
 table th {
   background-color: var(--md-bg-table-header);
   border: 1px solid var(--md-border-table);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-shadow: 0 1px 0 rgb(255 255 255 / 50%);
   padding: 5px;
 }
 

@@ -1,0 +1,33 @@
+# 源代码
+src/
+*.scss
+
+# 开发配置
+.github/
+docs/
+test/
+tests/
+scripts/
+
+# 构建工具
+build.js
+playwright.config.ts
+commitlint.config.js
+.versionrc.json
+
+# 测试相关
+test-results/
+playwright-report/
+
+# 依赖
+node_modules/
+
+# 编辑器
+.vscode/
+.idea/
+
+# 其他
+.gitignore
+*.log
+*.md
+!README.md

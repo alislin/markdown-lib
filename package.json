@@ -9,12 +9,15 @@
   "main": "dist/md-green.css",
   "scripts": {
     "build": "node build.js",
-    "release:tag": "node scripts/release.js",
     "watch": "sass --watch src/scss:dist --style compressed",
     "dev": "sass src/scss/md-green.scss:dist/md-green.css --watch",
+    "lint": "eslint . && stylelint \"src/**/*.scss\"",
+    "lint:fix": "eslint . --fix && stylelint \"src/**/*.scss\" --fix",
     "test": "npx playwright test",
     "release": "standard-version",
-    "release:first": "standard-version --first-release"
+    "release:first": "standard-version --first-release",
+    "release:tag": "node scripts/release.js",
+    "prepublishOnly": "npm run build && npm run lint"
   },
   "files": [
     "dist/"
@@ -22,11 +25,16 @@
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
     "@commitlint/config-conventional": "^20.5.0",
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.42.0",
+    "eslint": "^10.2.0",
+    "globals": "^17.4.0",
     "http-server": "^14.1.1",
     "playwright": "^1.42.0",
     "sass": "^1.83.0",
-    "standard-version": "^9.5.0"
+    "standard-version": "^9.5.0",
+    "stylelint": "^17.6.0",
+    "stylelint-config-standard-scss": "^17.0.0"
   },
   "publishConfig": {
     "access": "public",

@@ -26,8 +26,8 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type=checkbox],
-input[type=radio] {
+input[type="checkbox"],
+input[type="radio"] {
   cursor: pointer;
 }
 
@@ -42,8 +42,8 @@ textarea {
   margin-bottom: 18px;
 }
 
-input[type=text],
-input[type=password],
+input[type="text"],
+input[type="password"],
 textarea,
 select {
   display: inline-block;
@@ -59,7 +59,7 @@ select {
 }
 
 select,
-input[type=file] {
+input[type="file"] {
   height: 27px;
   line-height: 27px;
 }
@@ -68,20 +68,20 @@ textarea {
   height: auto;
 }
 
-input[type=text],
-input[type=password],
+input[type="text"],
+input[type="password"],
 select,
 textarea {
   transition: border linear 0.2s, box-shadow linear 0.2s;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 3px rgb(0 0 0 / 10%);
 }
 
-input[type=text]:focus,
-input[type=password]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
 textarea:focus {
   outline: none;
-  border-color: rgba(82, 168, 236, 0.8);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  border-color: rgb(82 168 236 / 80%);
+  box-shadow: inset 0 1px 3px rgb(0 0 0 / 10%), 0 0 8px rgb(82 168 236 / 60%);
 }
 
 :placeholder-shown {
@@ -95,15 +95,14 @@ button {
   font-size: var(--md-font-size-small);
   line-height: 18px;
   border-radius: var(--md-radius-md);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 20%), 0 1px 2px rgb(0 0 0 / 5%);
   background-color: #0064cd;
   background-image: linear-gradient(to bottom, #049cdb, #0064cd);
   color: #fff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  text-shadow: 0 -1px 0 rgb(0 0 0 / 25%);
   border: 1px solid #004b9a;
-  border-bottom-color: #003f81;
   transition: 0.1s linear all;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-color: rgb(0 0 0 / 10%) rgb(0 0 0 / 10%) rgb(0 0 0 / 25%);
 }
 
 button:hover {
@@ -113,7 +112,7 @@ button:hover {
 }
 
 button:active {
-  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 3px 7px rgb(0 0 0 / 15%), 0 1px 2px rgb(0 0 0 / 5%);
 }
 
 button::-moz-focus-inner {

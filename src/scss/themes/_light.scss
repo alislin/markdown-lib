@@ -2,6 +2,11 @@
 
 @use '../core/mixins' as *;
 
+// 默认：浅色主题变量输出到 :root
+:root {
+  @include light-colors;
+}
+
 // 优先级 1：用户手动选择浅色（最高）
 body[data-theme="light"] {
   @include light-colors;

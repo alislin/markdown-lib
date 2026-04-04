@@ -1,77 +1,85 @@
 // src/scss/core/_variables.scss
 
-// === 断点（SCSS 变量，用于 @media） ===
+// === 断点 ===
 $md-breakpoint-md: 768px;
 
-// 浅色主题默认变量
-:root {
-  // === 背景色 ===
-  --md-bg-primary: #ffffff;
-  --md-bg-secondary: #f7f7f7;
-  --md-bg-code: #f7f7f7;
-  --md-bg-blockquote: rgb(244, 255, 244);
-  --md-bg-table-hover: #fbf8e9;
-  --md-bg-table-header: #dce9f9;
-  
-  // === 文本色 ===
-  --md-text-primary: #444444;
-  --md-text-secondary: #666666;
-  --md-text-muted: #999999;
-  --md-text-heading: #111111;
-  --md-text-blockquote: #3c3c3c;
-  --md-text-blockquote-cite: #bfbfbf;
-  
-  // === 链接色 ===
-  --md-link: #0099ff;
-  --md-link-hover: #ff6600;
-  --md-link-visited: purple;
-  
-  // === 代码色 ===
-  --md-code-text: #F44336;
-  --md-code-border: #6CE26C;
-  --md-code-bg: #f7f7f7;
-  
-  // === 边框色 ===
-  --md-border: #EFEAEA;
-  --md-border-heading: #EFEAEA;
-  --md-border-blockquote: rgb(9, 180, 66);
-  --md-border-table: #ccc;
-  --md-border-image: gray;
-  
-  // === 间距 ===
-  --md-spacing-xs: 4px;
-  --md-spacing-sm: 8px;
-  --md-spacing-md: 16px;
-  --md-spacing-lg: 24px;
-  --md-spacing-xl: 32px;
-  
-  // === 圆角 ===
-  --md-radius-sm: 3px;
-  --md-radius-md: 4px;
-  --md-radius-lg: 6px;
-  
-  // === 字体 ===
-  --md-font-body: 宋体, "Microsoft YaHei", Arial, sans-serif;
-  --md-font-heading: 仿宋, Georgia, Palatino, serif;
-  --md-font-code: Consolas, Monaco, "Andale Mono", monospace;
-  --md-font-blockquote: 楷体;
-  
-  // === 字号 ===
-  --md-font-size-base: 16px;
-  --md-font-size-h1: 48px;
-  --md-font-size-h2: 36px;
-  --md-font-size-h3: 24px;
-  --md-font-size-h4: 21px;
-  --md-font-size-h5: 18px;
-  --md-font-size-code: 13px;
-  --md-font-size-small: 14px;
-  
-  // === 行高 ===
-  --md-line-height: 1.6;
-  --md-line-height-heading: 1;
-  --md-line-height-code: 1.7em;
-  
-  // === 阴影 ===
-  --md-shadow-image: 5px 5px 5px grey;
-  --md-shadow-code: none;
-}
+// === 浅色主题 SCSS 变量（单一数据源）===
+$md-light-colors: (
+  'bg-primary': #fff,
+  'bg-secondary': #f7f7f7,
+  'bg-code': #f7f7f7,
+  'bg-blockquote': rgb(244 255 244),
+  'bg-table-hover': #fbf8e9,
+  'bg-table-header': #dce9f9,
+  'text-primary': #444,
+  'text-secondary': #666,
+  'text-muted': #999,
+  'text-heading': #111,
+  'text-blockquote': #3c3c3c,
+  'text-blockquote-cite': #bfbfbf,
+  'link': #09f,
+  'link-hover': #f60,
+  'link-visited': purple,
+  'code-text': #F44336,
+  'code-border': #6CE26C,
+  'code-bg': #f7f7f7,
+  'border': #EFEAEA,
+  'border-heading': #EFEAEA,
+  'border-blockquote': rgb(9 180 66),
+  'border-table': #ccc,
+  'border-image': gray,
+  'spacing-xs': 4px,
+  'spacing-sm': 8px,
+  'spacing-md': 16px,
+  'spacing-lg': 24px,
+  'spacing-xl': 32px,
+  'radius-sm': 3px,
+  'radius-md': 4px,
+  'radius-lg': 6px,
+  'font-body': (宋体, "Microsoft YaHei", Arial, sans-serif),
+  'font-heading': (仿宋, Georgia, Palatino, serif),
+  'font-code': (Consolas, Monaco, "Andale Mono", monospace),
+  'font-blockquote': 楷体,
+  'font-size-base': 16px,
+  'font-size-h1': 48px,
+  'font-size-h2': 36px,
+  'font-size-h3': 24px,
+  'font-size-h4': 21px,
+  'font-size-h5': 18px,
+  'font-size-code': 13px,
+  'font-size-small': 14px,
+  'line-height': 1.6,
+  'line-height-heading': 1,
+  'line-height-code': 1.7em,
+  'shadow-image': 5px 5px 5px grey,
+  'shadow-code': none,
+);
+
+// === 深色主题 SCSS 变量（仅颜色部分）===
+$md-dark-colors: (
+  'bg-primary': #1a1a1a,
+  'bg-secondary': #1e1e1e,
+  'bg-code': #252525,
+  'bg-blockquote': #242424,
+  'bg-table-hover': #2a2a2a,
+  'bg-table-header': #2d2d2d,
+  'text-primary': #d0d0d0,
+  'text-secondary': #ccc,
+  'text-muted': #888,
+  'text-heading': #f0f0f0,
+  'text-blockquote': #d0d0d0,
+  'text-blockquote-cite': #888,
+  'link': #5ca8ff,
+  'link-hover': #ff914d,
+  'link-visited': #b380ff,
+  'code-text': #ff6b6b,
+  'code-border': #4CAF50,
+  'code-bg': #2d2d2d,
+  'border': #404040,
+  'border-heading': #404040,
+  'border-blockquote': #388E3C,
+  'border-table': #333,
+  'border-image': #444,
+  'shadow-image': 5px 5px 15px rgb(0 0 0 / 50%),
+  'shadow-code': 0 2px 8px rgb(0 0 0 / 30%),
+);

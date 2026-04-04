@@ -15,11 +15,11 @@ $md-breakpoint-md: 768px;
   
   // === 文本色 ===
   --md-text-primary: #d0d0d0;
-  --md-text-secondary: #cccccc;
-  --md-text-muted: #888888;
+  --md-text-secondary: #ccc;
+  --md-text-muted: #888;
   --md-text-heading: #f0f0f0;
   --md-text-blockquote: #d0d0d0;
-  --md-text-blockquote-cite: #888888;
+  --md-text-blockquote-cite: #888;
   
   // === 链接色 ===
   --md-link: #5ca8ff;
@@ -51,9 +51,9 @@ $md-breakpoint-md: 768px;
   --md-radius-lg: 6px;
   
   // === 字体 ===
-  --md-font-body: 宋体, "Microsoft YaHei", Arial, sans-serif;
-  --md-font-heading: 仿宋, Georgia, Palatino, serif;
-  --md-font-code: Consolas, Monaco, "Andale Mono", monospace;
+  --md-font-body: 宋体, "Microsoft YaHei", arial, sans-serif;
+  --md-font-heading: 仿宋, georgia, palatino, serif;
+  --md-font-code: consolas, monaco, "Andale Mono", monospace;
   --md-font-blockquote: 楷体;
   
   // === 字号 ===
@@ -72,6 +72,6 @@ $md-breakpoint-md: 768px;
   --md-line-height-code: 1.7em;
   
   // === 阴影 ===
-  --md-shadow-image: 5px 5px 15px rgba(0, 0, 0, 0.5);
-  --md-shadow-code: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --md-shadow-image: 5px 5px 15px rgb(0 0 0 / 50%);
+  --md-shadow-code: 0 2px 8px rgb(0 0 0 / 30%);
 }

@@ -68,7 +68,7 @@ async function verifyTheme(page: Page, scenario: ThemeTestScenario) {
   if (scenario.expectedTheme === 'dark') {
     expect(bgColor.trim()).toBe('#1a1a1a');
   } else {
-    expect(bgColor.trim()).toBe('#ffffff');
+    expect(bgColor.trim()).toMatch(/^#fff(?:fff)?$/i);
   }
 }
 

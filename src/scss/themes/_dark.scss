@@ -4,7 +4,7 @@
 
 // 优先级 3：系统深色主题（无用户选择，VSCode 不是 light 时）
 @media (prefers-color-scheme: dark) {
-  body:not([data-theme]):not([data-vscode-theme-kind*="light"]) {
+  body:not([data-theme], [data-vscode-theme-kind*="light"]) {
     @include dark-colors;
     @include dark-forms;
   }
@@ -24,14 +24,14 @@ body:not([data-theme])[data-vscode-theme-kind="vscode-dark"] {
 
 // === 选中文本 ===
 body[data-theme="dark"] ::selection {
-  background-color: rgba(76, 175, 80, 0.3);
-  color: #ffffff;
+  background-color: rgb(76 175 80 / 30%);
+  color: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   ::selection {
-    background-color: rgba(76, 175, 80, 0.3);
-    color: #ffffff;
+    background-color: rgb(76 175 80 / 30%);
+    color: #fff;
   }
 }
 
@@ -64,11 +64,11 @@ body[data-theme="dark"] {
 body[data-theme="dark"] kbd {
   background-color: var(--md-bg-code);
   border-color: #444;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 0 rgb(0 0 0 / 50%);
 }
 
 body[data-theme="dark"] mark {
-  background-color: rgba(255, 235, 59, 0.2);
+  background-color: rgb(255 235 59 / 20%);
   color: #fff;
   padding: 0 2px;
 }
@@ -77,12 +77,12 @@ body[data-theme="dark"] mark {
   kbd {
     background-color: #2d2d2d;
     border-color: #444;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 0 rgb(0 0 0 / 50%);
     color: #d0d0d0;
   }
   
   mark {
-    background-color: rgba(255, 235, 59, 0.2);
+    background-color: rgb(255 235 59 / 20%);
     color: #fff;
   }
 }

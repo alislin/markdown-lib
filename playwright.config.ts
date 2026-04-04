@@ -12,9 +12,6 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'on',
     video: 'off',
-    launchOptions: {
-      executablePath: 'C:\\Users\\Alis\\AppData\\Local\\ms-playwright\\chromium-1208\\chrome-win64\\chrome.exe',
-    },
   },
 
   projects: [
