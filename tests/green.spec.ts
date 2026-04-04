@@ -1,4 +1,4 @@
-import { runPriorityTests, runInteractionTests, runMarkStyleTests } from './shared/theme-priority';
+import { runPriorityTests, runInteractionTests, runMarkStyleTests, runElementStyleTests } from './shared/theme-priority';
 import type { ThemeTestConfig } from './shared/types';
 
 const config: ThemeTestConfig = {
@@ -16,3 +16,4 @@ const config: ThemeTestConfig = {
 runPriorityTests(config);
 runInteractionTests(config);
 runMarkStyleTests(config);
+runElementStyleTests(config);

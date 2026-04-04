@@ -193,4 +193,35 @@ function hexToRgb(hex: string): string {
 }
 
 export function runElementStyleTests(config: ThemeTestConfig) {
+  test(`[${config.name}] body 背景与文本 - 浅色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'light' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+
+    const bgPrimary = await page.evaluate(() => {
+      return getComputedStyle(document.body).getPropertyValue('--md-bg-primary').trim();
+    });
+    const textPrimary = await page.evaluate(() => {
+      return getComputedStyle(document.body).getPropertyValue('--md-text-primary').trim();
+    });
+
+    expect(bgPrimary).toBe(config.lightBgPrimary);
+    expect(textPrimary).toBe(config.lightTextPrimary);
+  });
+
+  test(`[${config.name}] body 背景与文本 - 深色模式`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.goto('/test/index.html', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+
+    const bgPrimary = await page.evaluate(() => {
+      return getComputedStyle(document.body).getPropertyValue('--md-bg-primary').trim();
+    });
+    const textPrimary = await page.evaluate(() => {
+      return getComputedStyle(document.body).getPropertyValue('--md-text-primary').trim();
+    });
+
+    expect(bgPrimary).toBe(config.darkBgPrimary);
+    expect(textPrimary).toBe(config.darkTextPrimary);
+  });
 }
