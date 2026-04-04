@@ -191,3 +191,6 @@ function hexToRgb(hex: string): string {
   
   return `rgb(${r}, ${g}, ${b})`;
 }
+
+export function runElementStyleTests(config: ThemeTestConfig) {
+}
