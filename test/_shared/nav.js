@@ -29,9 +29,9 @@
   
   function applyTheme(theme) {
     if (theme === 'auto') {
-      document.documentElement.removeAttribute('data-theme');
+      document.body.removeAttribute('data-theme');
     } else {
-      document.documentElement.setAttribute('data-theme', theme);
+      document.body.setAttribute('data-theme', theme);
     }
   }
   
@@ -45,9 +45,13 @@
     });
   }
   
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initNav);
-  } else {
-    initNav();
+  function init() {
+    if (document.body) {
+      initNav();
+    } else {
+      document.addEventListener('DOMContentLoaded', initNav);
+    }
   }
+  
+  init();
 })();

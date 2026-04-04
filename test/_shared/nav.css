@@ -53,7 +53,40 @@
 .md-nav-theme {
   display: flex;
   gap: 8px;
+}
+
+.md-nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   margin-left: 16px;
+}
+
+.md-theme-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.md-theme-btn {
+  padding: 6px 14px;
+  border: 1px solid var(--md-border-table);
+  border-radius: var(--md-radius-sm);
+  background: var(--md-bg-primary);
+  color: var(--md-text-primary);
+  cursor: pointer;
+  font-size: 13px;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.md-theme-btn:hover {
+  background: var(--md-bg-table-hover);
+}
+
+.md-theme-btn.active {
+  background: #4CAF50;
+  color: #fff;
+  border-color: #4CAF50;
 }
 
 .md-nav-theme button {

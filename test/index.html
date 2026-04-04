@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MD-Green Theme - 测试页面</title>
-  <link rel="stylesheet" href="../dist/md-green.css">
-  <link rel="stylesheet" href="_nav.css">
+  <title>Markdown Theme - 测试页面</title>
+  <link rel="stylesheet" href="../dist/md-green.css" data-theme-css>
+  <link rel="stylesheet" href="_shared/nav.css">
   <style>
     body {
       padding-top: 72px;
@@ -29,7 +29,7 @@
 </head>
 <body>
   <nav class="md-nav">
-    <a class="md-nav-brand" href="index.html">MD-Green Theme</a>
+    <a class="md-nav-brand" href="index.html">Markdown Theme</a>
     <div class="md-nav-links">
       <a href="index.html">首页</a>
       <a href="vscode.html">VSCode</a>
@@ -38,14 +38,17 @@
       <a href="export.html">导出模板</a>
       <a href="theme-priority.html">优先级测试</a>
     </div>
-    <div class="md-nav-theme">
-      <button data-theme="light">浅色</button>
-      <button data-theme="dark">深色</button>
-      <button data-theme="auto">自动</button>
+    <div class="md-nav-controls">
+      <div class="md-theme-selector"></div>
+      <div class="md-nav-theme">
+        <button data-theme="light">浅色</button>
+        <button data-theme="dark">深色</button>
+        <button data-theme="auto">自动</button>
+      </div>
     </div>
   </nav>
 
-  <h1>MD-Green Markdown Theme 测试页面</h1>
+  <h1>Markdown Theme 测试页面</h1>
   <p>这是一个完整的 Markdown 样式测试页面，展示所有支持的元素类型。</p>
 
   <div class="section">
@@ -246,6 +249,7 @@ console.log(message);</code></pre>
     <p>上下标：H<sub>2</sub>O 水，E = mc<sup>2</sup> 质能方程</p>
   </div>
 
-  <script src="_nav.js"></script>
+  <script src="_shared/theme-selector.js"></script>
+  <script src="_shared/nav.js"></script>
 </body>
 </html>
