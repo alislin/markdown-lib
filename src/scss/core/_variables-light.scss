@@ -1,0 +1,56 @@
+// src/scss/core/_variables-light.scss
+
+$md-breakpoint-md: 768px;
+
+:root {
+  --md-bg-primary: #fff;
+  --md-bg-secondary: #f7f7f7;
+  --md-bg-code: #f7f7f7;
+  --md-bg-blockquote: rgb(244 255 244);
+  --md-bg-table-hover: #fbf8e9;
+  --md-bg-table-header: #dce9f9;
+  --md-text-primary: #444;
+  --md-text-secondary: #666;
+  --md-text-muted: #999;
+  --md-text-heading: #111;
+  --md-text-blockquote: #3c3c3c;
+  --md-text-blockquote-cite: #bfbfbf;
+  --md-link: #09f;
+  --md-link-hover: #f60;
+  --md-link-visited: purple;
+  --md-code-text: #F44336;
+  --md-code-border: #6CE26C;
+  --md-code-bg: #f7f7f7;
+  --md-border: #EFEAEA;
+  --md-border-heading: #EFEAEA;
+  --md-border-blockquote: rgb(9 180 66);
+  --md-border-table: #ccc;
+  --md-border-image: gray;
+  --md-mark-bg: #fff59d;
+  --md-mark-text: #000;
+  --md-spacing-xs: 4px;
+  --md-spacing-sm: 8px;
+  --md-spacing-md: 16px;
+  --md-spacing-lg: 24px;
+  --md-spacing-xl: 32px;
+  --md-radius-sm: 3px;
+  --md-radius-md: 4px;
+  --md-radius-lg: 6px;
+  --md-font-body: 宋体, "Microsoft YaHei", Arial, sans-serif;
+  --md-font-heading: 仿宋, Georgia, Palatino, serif;
+  --md-font-code: Consolas, Monaco, "Andale Mono", monospace;
+  --md-font-blockquote: 楷体;
+  --md-font-size-base: 16px;
+  --md-font-size-h1: 48px;
+  --md-font-size-h2: 36px;
+  --md-font-size-h3: 24px;
+  --md-font-size-h4: 21px;
+  --md-font-size-h5: 18px;
+  --md-font-size-code: 13px;
+  --md-font-size-small: 14px;
+  --md-line-height: 1.6;
+  --md-line-height-heading: 1;
+  --md-line-height-code: 1.7em;
+  --md-shadow-image: 5px 5px 5px grey;
+  --md-shadow-code: none;
+}
